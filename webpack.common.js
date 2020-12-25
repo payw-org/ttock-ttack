@@ -4,7 +4,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
 
 const config = {
-  entry: './src/index.js',
+  entry: './src/index.tsx',
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js'],
+  },
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'build.js',
@@ -31,6 +34,15 @@ const config = {
             },
           },
         ],
+      },
+      {
+        test: /\.ts(x?)$/,
+        use: 'awesome-typescript-loader',
+      },
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        loader: 'source-map-loader',
       },
     ],
   },
