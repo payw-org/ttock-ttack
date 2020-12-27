@@ -1,5 +1,3 @@
-const { replace } = require('core-js/fn/symbol')
-
 module.exports = function (api) {
   api.cache(true)
 
