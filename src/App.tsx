@@ -1,7 +1,14 @@
 import React from 'react'
+import Timer from '@/components/Timer'
+
+const testDateTime = new Date('2021-02-11 23:59:59')
 
 function App() {
-  return <div>hello world</div>
+  return (
+    <div>
+      <Timer dateTime={testDateTime} />
+    </div>
+  )
 }
 
 export default App
