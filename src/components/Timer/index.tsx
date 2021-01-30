@@ -1,6 +1,6 @@
 import { getDDay } from '@/utils/time'
 import React, { useState } from 'react'
-import DisplayTime from './DisplayTime'
+import { DisplayTime } from './DisplayTime'
 import './style.scss'
 
 interface TimerProps {
@@ -11,7 +11,7 @@ function getTwoDigit(num: number): string {
   return num < 10 ? `0${num}` : num.toString()
 }
 
-const Timer: React.FC<TimerProps> = ({ dateTime }) => {
+export const Timer: React.FC<TimerProps> = ({ dateTime }) => {
   const [currentDateTime, setCurrentDateTime] = useState(new Date())
   setTimeout(() => {
     setCurrentDateTime(new Date())
@@ -54,5 +54,3 @@ const Timer: React.FC<TimerProps> = ({ dateTime }) => {
     </div>
   )
 }
-
-export default Timer

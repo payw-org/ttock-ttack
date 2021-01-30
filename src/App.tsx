@@ -1,5 +1,5 @@
 import React from 'react'
-import Timer from '@/components/Timer'
+import { Timer } from '@/components/Timer'
 
 const testDateTime = new Date('2022-02-11 23:59:59')
 

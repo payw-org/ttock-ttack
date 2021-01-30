@@ -41,7 +41,7 @@ const getAnimationObj = (
   opacity,
 })
 
-const DisplayTime: React.FC<DisplayTimeProps> = ({
+export const DisplayTime: React.FC<DisplayTimeProps> = ({
   currentTime,
   nextTime,
   unit,
@@ -113,5 +113,3 @@ const DisplayTime: React.FC<DisplayTimeProps> = ({
     </div>
   )
 }
-
-export default DisplayTime
