@@ -1,12 +1,15 @@
 import React from 'react'
 import { Timer } from '@/components/Timer'
-
-const testDateTime = new Date('2022-02-11 23:59:59')
+import { SideMenuBar } from '@/components/SideMenuBar'
+import { testBookmarkList, testDateTime } from './utils/mock-data'
+import '@/style/fonts.scss'
+import '@/style/global.scss'
 
 function App() {
   return (
     <div>
       <Timer dateTime={testDateTime} />
+      <SideMenuBar bookmarkList={testBookmarkList} />
     </div>
   )
 }
