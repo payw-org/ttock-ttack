@@ -23,11 +23,11 @@ function getDifference(str: string, from: string): string {
 }
 
 const animationConfig = {
-  beforeScale: 0.75,
-  targetY: '0.4em',
-  duration: '0.3s',
+  beforeScale: 0.7,
+  targetY: '0.6em',
+  duration: '0.4s',
   beforeOpacity: 0,
-  delay: 600,
+  delay: 500,
 }
 
 const getAnimationObj = (
