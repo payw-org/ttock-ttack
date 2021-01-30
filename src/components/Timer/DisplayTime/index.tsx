@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './style.scss'
 
 interface DisplayTimeProps {
@@ -31,10 +31,10 @@ const animationConfig = {
 }
 
 const getAnimationObj = (
-  scale,
-  translateY,
-  transition,
-  opacity
+  scale: number,
+  translateY: string,
+  transition: string,
+  opacity: number
 ): AnimationType => ({
   transform: `scale(${scale}) translateY(${translateY})`,
   transition,
@@ -66,11 +66,11 @@ const DisplayTime: React.FC<DisplayTimeProps> = ({
         animationConfig.beforeOpacity
       )
     )
-    setOutAnimation(getAnimationObj(1, 0, 'initial', 1))
+    setOutAnimation(getAnimationObj(1, '0', 'initial', 1))
 
     setTimeout(() => {
       setInAnimation(
-        getAnimationObj(1, 0, `${animationConfig.duration} ease-in`, 1)
+        getAnimationObj(1, '0', `${animationConfig.duration} ease-in`, 1)
       )
       setOutAnimation(
         getAnimationObj(
