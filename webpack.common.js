@@ -14,6 +14,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'build.js',
+    publicPath: '',
   },
   module: {
     rules: [
@@ -34,6 +35,18 @@ const config = {
             options: {
               name: 'images/[name].[ext]?[hash]',
               limit: 10000,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 1000,
+              mimetype: 'application/font-woff',
             },
           },
         ],
