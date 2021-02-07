@@ -1,14 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Timer } from '@/components/Timer'
 import { SideMenuBar } from '@/components/SideMenuBar'
-import { testBookmarkList, testDateTime } from './utils/mock-data'
+import { BookmarkProps } from '@/components/common/Bookmark'
 import '@/style/fonts.scss'
 import '@/style/global.scss'
 import axios from 'axios'
 
 type Data = {
-  sideBookmarkList: Array<any>
-  mainDate: string
+  sideBookmarkList: BookmarkProps[]
+  mainDate: Date
 }
 
 const getData = async () => {
@@ -22,7 +22,7 @@ const App: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       const fetchedData = await getData()
-      setData(fetchedData)
+      setData({ ...fetchedData, mainDate: new Date(fetchedData.mainDate) })
     }
     fetchData()
   }, [])
@@ -31,7 +31,7 @@ const App: React.FC = () => {
     <div>
       {data ? (
         <>
-          <Timer dateTime={new Date(data.mainDate)} />
+          <Timer dateTime={data.mainDate} />
           <SideMenuBar bookmarkList={data.sideBookmarkList} />
         </>
       ) : (

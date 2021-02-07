@@ -2,7 +2,7 @@ import React from 'react'
 import { Bookmark, BookmarkProps } from '@/components/common/Bookmark'
 import './style.scss'
 
-interface SideMenuBarProps {
+export interface SideMenuBarProps {
   bookmarkList: BookmarkProps[]
 }
 
