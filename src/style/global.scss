@@ -1,4 +1,4 @@
-@import './package';
+@use '@/style/package' as *;
 
 /* Default Settings */
 html {
@@ -79,6 +79,31 @@ input[type='number']::-webkit-inner-spin-button {
 
 .stop-scroll {
   overflow: hidden !important;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+
+  &.center {
+    justify-content: center;
+  }
+
+  &.between {
+    justify-content: space-between;
+  }
+
+  &.around {
+    justify-content: space-around;
+  }
+
+  &.end {
+    justify-content: end;
+  }
+
+  &.start {
+    justify-content: start;
+  }
 }
 
 /* End: Useful Styles */
