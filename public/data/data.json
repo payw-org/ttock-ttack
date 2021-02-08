@@ -2,41 +2,49 @@
   "mainDate": "2022-02-11 23:59:59",
   "sideBookmarkList": [
     {
+      "id": 1,
       "name": "중앙대학교",
       "url": "https://www.cau.ac.kr/index.do",
       "image": "/images/cau-logo.png"
     },
     {
+      "id": 2,
       "name": "중앙대학교",
       "url": "https://www.cau.ac.kr/index.do",
       "image": "/images/cau-logo.png"
     },
     {
+      "id": 3,
       "name": "중앙대학교",
       "url": "https://www.cau.ac.kr/index.do",
       "image": "/images/cau-logo.png"
     },
     {
+      "id": 4,
       "name": "중앙대학교",
       "url": "https://www.cau.ac.kr/index.do",
       "image": "/images/cau-logo.png"
     },
     {
+      "id": 5,
       "name": "중앙대학교",
       "url": "https://www.cau.ac.kr/index.do",
       "image": "/images/cau-logo.png"
     },
     {
+      "id": 6,
       "name": "중앙대학교",
       "url": "https://www.cau.ac.kr/index.do",
       "image": "/images/cau-logo.png"
     },
     {
+      "id": 7,
       "name": "중앙대학교",
       "url": "https://www.cau.ac.kr/index.do",
       "image": "/images/cau-logo.png"
     },
     {
+      "id": 8,
       "name": "중앙대학교",
       "url": "https://www.cau.ac.kr/index.do",
       "image": "/images/cau-logo.png"

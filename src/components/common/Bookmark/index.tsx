@@ -2,6 +2,7 @@ import React from 'react'
 import './style.scss'
 
 export interface BookmarkProps {
+  id: number
   name: string
   url: string
   image: string

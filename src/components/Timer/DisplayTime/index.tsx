@@ -89,8 +89,8 @@ export const DisplayTime: React.FC<DisplayTimeProps> = ({
   ): JSX.Element => {
     return value ? (
       <div style={animation}>
-        {value.split('').map((letter, index) => (
-          <span key={index}>{letter}</span>
+        {value.split('').map((letter) => (
+          <span key={letter}>{letter}</span>
         ))}
       </div>
     ) : (
