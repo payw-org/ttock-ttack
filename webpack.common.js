@@ -40,13 +40,12 @@ const config = {
         ],
       },
       {
-        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        test: /\.(woff|woff2|eot|ttf)$/,
         use: [
           {
             loader: 'url-loader',
             options: {
               limit: 1000,
-              mimetype: 'application/font-woff',
             },
           },
         ],
