@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import { Timer } from '@/components/Timer'
 import { SideMenuBar } from '@/components/SideMenuBar'
 import { BookmarkProps } from '@/components/common/Bookmark'
+import { TodoContainer, TodoContainerProps } from '@/components/TodoContainer'
 import '@/style/fonts.scss'
 import '@/style/global.scss'
-import axios from 'axios'
 
 type Data = {
   sideBookmarkList: BookmarkProps[]
   mainDate: Date
+  todoConfig: TodoContainerProps
 }
 
 const getData = async () => {
@@ -33,6 +35,7 @@ const App: React.FC = () => {
         <>
           <Timer dateTime={data.mainDate} />
           <SideMenuBar bookmarkList={data.sideBookmarkList} />
+          <TodoContainer {...data.todoConfig} />
         </>
       ) : (
         <></>
