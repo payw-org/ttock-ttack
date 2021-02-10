@@ -1,0 +1,40 @@
+@use '@/style/package' as *;
+
+.todo-container[data-component] {
+  background-color: rgba($color-black, 0.5);
+  padding: 1.6rem;
+  width: 25rem;
+  overflow-y: auto;
+  border-radius: 0.8rem;
+  margin-left: 10rem; //FIXME
+
+  > .title-wrapper {
+    user-select: none;
+
+    .title {
+      font: {
+        size: 2rem;
+        weight: 500;
+      }
+      letter-spacing: 0.025em;
+      color: $color-white;
+    }
+  }
+
+  .section-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 1.2rem;
+
+    .todo-section {
+      padding-top: 1.2rem;
+      border-top: 0.1rem solid $color-white;
+
+      &:not(:last-child) {
+        .todo-container {
+          margin-bottom: 2.4rem;
+        }
+      }
+    }
+  }
+}
