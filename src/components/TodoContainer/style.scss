@@ -1,12 +1,38 @@
 @use '@/style/package' as *;
 
 .todo-container[data-component] {
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
   background-color: rgba($color-black, 0.5);
-  padding: 1.6rem;
+  padding: 1rem 1.2rem;
   width: 25rem;
   overflow-y: auto;
   border-radius: 0.8rem;
-  margin-left: 10rem; //FIXME
+
+  &.plus {
+    i {
+      &.plus {
+        display: block;
+      }
+
+      &.minus {
+        display: none;
+      }
+    }
+  }
+
+  &.minus {
+    i {
+      &.plus {
+        display: none;
+      }
+
+      &.minus {
+        display: block;
+      }
+    }
+  }
 
   > .title-wrapper {
     user-select: none;
@@ -19,12 +45,19 @@
       letter-spacing: 0.025em;
       color: $color-white;
     }
+
+    i {
+      color: $color-white;
+      font-size: 2.6rem;
+      cursor: pointer;
+      user-select: none;
+    }
   }
 
   .section-container {
     display: grid;
     grid-template-columns: 1fr;
-    margin-top: 1.2rem;
+    margin-top: 1rem;
 
     .todo-section {
       padding-top: 1.2rem;
