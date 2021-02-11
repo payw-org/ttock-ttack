@@ -1,7 +1,11 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const webpack = require('webpack')
 const path = require('path')
+const dotenv = require('dotenv')
+
+dotenv.config()
 
 const config = {
   entry: './src/index.tsx',
@@ -71,6 +75,9 @@ const config = {
       filename: path.resolve(__dirname, './dist/index.html'),
     }),
     new CleanWebpackPlugin({ filename: 'build.js' }),
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(process.env),
+    }),
   ],
 }
 

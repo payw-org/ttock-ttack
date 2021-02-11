@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import firebase from '@/firebase'
 import { Timer } from '@/components/Timer'
 import { SideMenuBar } from '@/components/SideMenuBar'
 import { BookmarkProps } from '@/components/common/Bookmark'
