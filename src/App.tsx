@@ -4,6 +4,8 @@ import { Timer } from '@/components/Timer'
 import { SideMenuBar } from '@/components/SideMenuBar'
 import { BookmarkProps } from '@/components/common/Bookmark'
 import { TodoContainer, TodoContainerProps } from '@/components/TodoContainer'
+import { ProfessorCardProps } from '@/components/Professor/ProfessorCard'
+import { NavBar } from '@/components/NavBar'
 import '@/style/fonts.scss'
 import '@/style/global.scss'
 
@@ -11,6 +13,7 @@ type Data = {
   sideBookmarkList: BookmarkProps[]
   mainDate: Date
   todoConfig: TodoContainerProps
+  professorsList: ProfessorCardProps[]
 }
 
 const getData = async () => {
@@ -36,6 +39,7 @@ const App: React.FC = () => {
           <Timer dateTime={data.mainDate} />
           <SideMenuBar bookmarkList={data.sideBookmarkList} />
           <TodoContainer {...data.todoConfig} />
+          <NavBar professorsList={...data.professorsList} />
         </>
       ) : (
         <></>
