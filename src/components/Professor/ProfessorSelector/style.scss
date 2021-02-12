@@ -1,0 +1,19 @@
+@use '@/style/package' as *;
+
+.selectBar {
+  margin-bottom: 1.2rem;
+  display: flex;
+  place-content: space-between;
+}
+
+.search-icon {
+  width: 10px;
+}
+
+.custom-select > select {
+  width: 10.5rem;
+  border-color: $color-white;
+  padding: 3px;
+  font-size: 8px;
+  border-radius: 0.4rem;
+}
