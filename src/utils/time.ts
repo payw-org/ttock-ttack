@@ -42,3 +42,20 @@ export function getFormattedDate(date: Date, format: string): string {
 
   return formattedDate
 }
+
+export function getCurrentDate(): [string, number, number, number] {
+  const date = new Date()
+  const state = date.toLocaleTimeString().split(' ')[0] === '오전' ? 'AM' : 'PM'
+
+  const dateFormat = (num):number => {
+    return num< 10 ? `0${num}` : num.toString()
+  }
+
+  const [hour, minute, second] = [
+    state === 'AM' ? dateFormat(date.getHours()) : dateFormat(date.getHours()-12),
+    dateFormat(date.getMinutes()),
+    dateFormat(date.getSeconds())
+  ]
+
+  return [state, hour, minute, second]
+}
