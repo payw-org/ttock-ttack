@@ -1,0 +1,27 @@
+@use '@/style/package' as *;
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+}
+
+.left,
+.center,
+.right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  div {
+    margin: 10px 10px;
+  }
+}
+
+.weather {
+  .lowest {
+    color: $color-blue-lighten-0;
+  }
+  .best {
+    color: $color-red-lighten-0;
+  }
+}
