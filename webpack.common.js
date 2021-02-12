@@ -1,7 +1,11 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const webpack = require('webpack')
 const path = require('path')
+const dotenv = require('dotenv')
+
+dotenv.config()
 
 const config = {
   entry: './src/index.tsx',
@@ -40,13 +44,12 @@ const config = {
         ],
       },
       {
-        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        test: /\.(woff|woff2|eot|ttf)$/,
         use: [
           {
             loader: 'url-loader',
             options: {
               limit: 1000,
-              mimetype: 'application/font-woff',
             },
           },
         ],
@@ -72,6 +75,9 @@ const config = {
       filename: path.resolve(__dirname, './dist/index.html'),
     }),
     new CleanWebpackPlugin({ filename: 'build.js' }),
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(process.env),
+    }),
   ],
 }
 

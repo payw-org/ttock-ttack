@@ -1,4 +1,8 @@
 .timer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max-content;
   display: flex;
-  padding: 10rem 0;
 }

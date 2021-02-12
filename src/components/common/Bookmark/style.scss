@@ -1,4 +1,4 @@
-@import '@/style/package';
+@use '@/style/package' as *;
 
 .bookmark {
   a {
@@ -9,7 +9,7 @@
         color: $color-gray-100;
       }
     }
-    
+
     img {
       display: block;
       width: 7.5rem;

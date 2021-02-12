@@ -1,0 +1,108 @@
+{
+  "mainDate": "2022-02-11 23:59:59",
+  "sideBookmarkList": [
+    {
+      "id": 1,
+      "name": "중앙대학교",
+      "url": "https://www.cau.ac.kr/index.do",
+      "image": "/images/cau-logo.png"
+    },
+    {
+      "id": 2,
+      "name": "중앙대학교",
+      "url": "https://www.cau.ac.kr/index.do",
+      "image": "/images/cau-logo.png"
+    },
+    {
+      "id": 3,
+      "name": "중앙대학교",
+      "url": "https://www.cau.ac.kr/index.do",
+      "image": "/images/cau-logo.png"
+    },
+    {
+      "id": 4,
+      "name": "중앙대학교",
+      "url": "https://www.cau.ac.kr/index.do",
+      "image": "/images/cau-logo.png"
+    },
+    {
+      "id": 5,
+      "name": "중앙대학교",
+      "url": "https://www.cau.ac.kr/index.do",
+      "image": "/images/cau-logo.png"
+    },
+    {
+      "id": 6,
+      "name": "중앙대학교",
+      "url": "https://www.cau.ac.kr/index.do",
+      "image": "/images/cau-logo.png"
+    },
+    {
+      "id": 7,
+      "name": "중앙대학교",
+      "url": "https://www.cau.ac.kr/index.do",
+      "image": "/images/cau-logo.png"
+    },
+    {
+      "id": 8,
+      "name": "중앙대학교",
+      "url": "https://www.cau.ac.kr/index.do",
+      "image": "/images/cau-logo.png"
+    }
+  ],
+  "todoConfig": {
+    "isShow": true,
+    "todoSectionList": [
+      {
+        "id": 1,
+        "isShow": true,
+        "title": "To Do",
+        "todoList": [
+          {
+            "id": 1,
+            "title": "과제 제출하기",
+            "dueDate": "2021-02-11 23:59:59",
+            "isMain": true
+          },
+          {
+            "id": 2,
+            "title": "스테이크 굽기",
+            "dueDate": "2021-02-07 18:30:00",
+            "isMain": true
+          },
+          {
+            "id": 3,
+            "title": "과제 제출하기",
+            "dueDate": "2021-02-11 23:59:59",
+            "isMain": true
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "isShow": false,
+        "title": "Done",
+        "todoList": [
+          {
+            "id": 1,
+            "title": "과제 제출하기",
+            "dueDate": "2021-02-11 23:59:59",
+            "isMain": true
+          },
+          {
+            "id": 2,
+            "title": "스테이크 굽기",
+            "dueDate": "2021-02-07 18:30:00",
+            "isMain": true
+          },
+          {
+            "id": 3,
+            "title": "과제 제출하기",
+            "dueDate": "2021-02-11 23:59:59",
+            "isMain": true
+          }
+        ]
+      }
+    ]
+  }
+}

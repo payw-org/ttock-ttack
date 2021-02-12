@@ -1,0 +1,47 @@
+@use '@/style/package' as *;
+
+.todo-section {
+  .head {
+    margin-bottom: 1.2rem;
+
+    .title-wrapper {
+      .title {
+        font: {
+          size: 1.5rem;
+          weight: 500;
+        }
+        color: $color-white;
+        letter-spacing: -0.025;
+        margin-right: 0.8rem;
+      }
+
+      .add-btn {
+        font-size: 1.2rem;
+        color: $color-gray-800;
+        padding: 0.1rem 0.5rem;
+        border-radius: 0.4rem;
+        background-color: $color-gray-100;
+        cursor: pointer;
+      }
+    }
+
+    .toggle {
+      i {
+        font-size: 1.8rem;
+        color: $color-white;
+        cursor: pointer;
+        user-select: none;
+
+        &.down {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  .todo-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+}
