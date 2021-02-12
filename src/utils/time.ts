@@ -26,7 +26,7 @@ export function getFormattedDate(date: Date, format: string): string {
     D: day,
     hh: hour < 10 ? `0${hour}` : hour,
     h: hour,
-    mm: minute < 10 ? '0${minute}' : minute,
+    mm: minute < 10 ? `0${minute}` : minute,
     m: minute,
     ss: second < 10 ? `0${second}` : second,
     s: second,
