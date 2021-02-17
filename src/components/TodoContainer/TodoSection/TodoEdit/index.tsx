@@ -15,14 +15,16 @@ export const TodoEdit: React.FC<TodoProps> = (props) => {
     store: { todoList },
     dispatchStore,
   } = useStore()
-  const thisComponent = useRef<HTMLDivElement>(null)
+  const thisTodo = todoList.find((todo) => todo.id === props.id)
 
+  const thisComponent = useRef<HTMLDivElement>(null)
   const datePicker = useRef<
     HTMLDivElement & {
       onInputClick: () => void
       input: HTMLInputElement
     }
   >()
+
   const [title, setTitle] = useState<string>(props.title)
   const [date, setDate] = useState<Date>(props.dueDate)
   const [hour, setHour] = useState<string>(
@@ -56,10 +58,10 @@ export const TodoEdit: React.FC<TodoProps> = (props) => {
   }
 
   const saveTodo = () => {
-    const thisTodo = todoList.find((todo) => todo.id === props.id)
-    if (!thisTodo) return
+    if (!thisTodo || title === '') return
 
     thisTodo.isEdit = false
+    thisTodo.isNew = false
     thisTodo.title = title
     thisTodo.dueDate = new Date(
       `${getFormattedDate(date, 'YYYY-MM-DD')} ${hour}:${minute}:00`
@@ -117,7 +119,10 @@ export const TodoEdit: React.FC<TodoProps> = (props) => {
         <button className="cancel" onClick={cancelTodo}>
           Cancel
         </button>
-        <button className="save" onClick={saveTodo}>
+        <button
+          className={'save ' + (title !== '' ? 'active' : '')}
+          onClick={saveTodo}
+        >
           Save
         </button>
       </div>
