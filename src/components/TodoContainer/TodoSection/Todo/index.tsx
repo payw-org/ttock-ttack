@@ -3,15 +3,17 @@ import { getFormattedDate } from '@/utils/time'
 import './style.scss'
 
 export interface TodoProps {
+  sectionId: number
   id: number
   title: string
   dueDate: Date
   isMain: boolean
+  isEdit: boolean
 }
 
 export const Todo: React.FC<TodoProps> = ({ title, dueDate, isMain }) => {
   return (
-    <div className="todo">
+    <div className="todo" data-component="">
       <div className="row between">
         <div className="title-wrapper">
           <h3 className="title">{title}</h3>
