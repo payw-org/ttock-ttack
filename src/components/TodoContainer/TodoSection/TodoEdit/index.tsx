@@ -70,10 +70,17 @@ export const TodoEdit: React.FC<TodoProps> = (props) => {
   }
 
   const cancelTodo = () => {
-    dispatchStore(
-      'todoList',
-      todoList.filter((todo) => todo.id !== props.id)
-    )
+    if (props.isNew) {
+      dispatchStore(
+        'todoList',
+        todoList.filter((todo) => todo.id !== props.id)
+      )
+      return
+    }
+
+    if (!thisTodo) return
+    thisTodo.isEdit = false
+    dispatchStore('todoList', [...todoList])
   }
 
   return (
