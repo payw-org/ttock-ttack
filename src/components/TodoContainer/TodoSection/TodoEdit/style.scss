@@ -1,0 +1,112 @@
+@use '@/style/package' as *;
+
+.todo-edit[data-component] {
+  background-color: $color-white;
+  border-radius: 0.4rem;
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+
+  .title-input-row {
+    padding-bottom: 0.2rem;
+    border-bottom: 0.1rem solid $color-gray-300;
+    margin-bottom: 0.6rem;
+
+    input {
+      font-size: 1.4rem;
+      color: $color-gray-800;
+      border: none;
+      width: 100%;
+      margin-right: 0.4rem;
+
+      &::placeholder {
+        color: $color-gray-500;
+      }
+    }
+
+    i.star {
+      font-size: 1.2rem;
+      color: $color-white;
+      background-color: $color-gray-300;
+      padding: 0.2rem;
+      border-radius: 0.2rem;
+      user-select: none;
+      cursor: pointer;
+    }
+  }
+
+  .date-row {
+    margin-bottom: 0.8rem;
+
+    input {
+      font-size: 1.2rem;
+      border: none;
+    }
+
+    i.calendar {
+      font-size: 1.6rem;
+      margin-right: 0.4rem;
+      user-select: none;
+      cursor: pointer;
+    }
+
+    .react-datepicker-wrapper {
+      input {
+        width: 8rem;
+      }
+    }
+
+    .react-datepicker {
+      transform: scale(1.25) translate(5%, 12.5%);
+    }
+
+    .time-input-wrapper {
+      margin-left: 0.8rem;
+
+      input {
+        width: 1.8rem;
+
+        &.minute {
+          width: 2.1rem;
+        }
+      }
+
+      .colon {
+        font-size: 1.2rem;
+        color: $color-gray-800;
+        margin: 0 0.2rem;
+      }
+    }
+  }
+
+  .button-row {
+    gap: 0.4rem;
+
+    button {
+      flex: 1 1 0px;
+      height: 2.4rem;
+      border-radius: 0.4rem;
+      font: {
+        size: 1.3rem;
+        weight: 500;
+      }
+
+      &.cancel {
+        background-color: $color-gray-100;
+        color: $color-gray-800;
+
+        &:hover {
+          background-color: $color-gray-200;
+        }
+      }
+
+      &.save {
+        background-color: $color-blue-lighten-1;
+        color: $color-white;
+
+        &:hover {
+          background-color: $color-blue-lighten-0;
+        }
+      }
+    }
+  }
+}
