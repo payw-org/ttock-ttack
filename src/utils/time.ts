@@ -8,6 +8,10 @@ export function getDDay(dateTime: Date): number[] {
   return [restDay, hour, minute, second]
 }
 
+export function getTwoDigit(number: number | string): string {
+  return +number === 0 ? '00' : +number < 10 ? `0${+number}` : `${+number}`
+}
+
 export function getFormattedDate(date: Date, format: string): string {
   const [year, month, day, hour, minute, second] = [
     date.getFullYear(),
@@ -20,15 +24,15 @@ export function getFormattedDate(date: Date, format: string): string {
   const DATE_FORMAT = {
     YYYY: year,
     YY: year % 100,
-    MM: month < 10 ? `0${month}` : month,
+    MM: getTwoDigit(month),
     M: month,
-    DD: day < 10 ? `0${day}` : day,
+    DD: getTwoDigit(day),
     D: day,
-    hh: hour < 10 ? `0${hour}` : hour,
+    hh: getTwoDigit(hour),
     h: hour,
-    mm: minute < 10 ? '0${minute}' : minute,
+    mm: getTwoDigit(minute),
     m: minute,
-    ss: second < 10 ? `0${second}` : second,
+    ss: getTwoDigit(second),
     s: second,
   }
 

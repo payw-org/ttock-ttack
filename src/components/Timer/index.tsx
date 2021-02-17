@@ -1,29 +1,28 @@
-import { getDDay } from '@/utils/time'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useStore } from '@/store'
+import { getDDay, getTwoDigit } from '@/utils/time'
 import { DisplayTime } from './DisplayTime'
 import './style.scss'
 
-export interface TimerProps {
-  dateTime: Date
-}
+export const Timer: React.FC = () => {
+  const {
+    store: { mainDate },
+  } = useStore()
 
-function getTwoDigit(num: number): string {
-  return num < 10 ? `0${num}` : num.toString()
-}
-
-export const Timer: React.FC<TimerProps> = ({ dateTime }) => {
   const [currentDateTime, setCurrentDateTime] = useState(new Date())
-  setTimeout(() => {
-    setCurrentDateTime(new Date())
-  }, 1000)
+  useEffect(() => {
+    setTimeout(() => {
+      setCurrentDateTime(new Date())
+    }, 1000)
+  }, [currentDateTime])
 
-  const timeGap: Date = new Date(dateTime.getTime() - currentDateTime.getTime())
+  const timeGap: Date = new Date(mainDate.getTime() - currentDateTime.getTime())
   const [restDay, hour, minute, second] = getDDay(timeGap).map((v) =>
     getTwoDigit(v)
   )
 
   const nextTimeGap: Date = new Date(
-    dateTime.getTime() - currentDateTime.getTime() - 1000
+    mainDate.getTime() - currentDateTime.getTime() - 1000
   )
   const [nextRestDay, nextHour, nextMinute, nextSecond] = getDDay(
     nextTimeGap
