@@ -70,64 +70,56 @@
       "id": 1,
       "title": "과제 제출하기",
       "dueDate": "2021-02-11 23:59:59",
-      "isMain": false,
-      "isEidt": false
+      "isMain": false
     },
     {
       "sectionId": 1,
       "id": 2,
       "title": "스테이크 굽기",
       "dueDate": "2021-02-07 18:30:00",
-      "isMain": false,
-      "isEidt": false
+      "isMain": false
     },
     {
       "sectionId": 1,
       "id": 3,
       "title": "과제 제출하기",
       "dueDate": "2021-02-11 23:59:59",
-      "isMain": false,
-      "isEidt": false
+      "isMain": false
     },
     {
       "sectionId": 1,
       "id": 4,
       "title": "과제하기",
       "dueDate": "2021-02-11 23:59:59",
-      "isMain": false,
-      "isEidt": false
+      "isMain": false
     },
     {
       "sectionId": 1,
       "id": 5,
       "title": "개발",
       "dueDate": "2021-02-11 23:59:59",
-      "isMain": false,
-      "isEidt": false
+      "isMain": false
     },
     {
       "sectionId": 2,
       "id": 6,
       "title": "과제 제출하기",
       "dueDate": "2021-02-11 23:59:59",
-      "isMain": false,
-      "isEidt": false
+      "isMain": false
     },
     {
       "sectionId": 2,
       "id": 7,
       "title": "스테이크 굽기",
       "dueDate": "2021-02-07 18:30:00",
-      "isMain": false,
-      "isEidt": false
+      "isMain": false
     },
     {
       "sectionId": 2,
       "id": 8,
       "title": "과제 제출하기",
       "dueDate": "2021-02-11 23:59:59",
-      "isMain": false,
-      "isEidt": false
+      "isMain": false
     }
   ],
   "toggleConfig": {

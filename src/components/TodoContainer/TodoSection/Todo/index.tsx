@@ -8,7 +8,8 @@ export interface TodoProps {
   title: string
   dueDate: Date
   isMain: boolean
-  isEdit: boolean
+  isEdit?: boolean
+  isNew?: boolean
 }
 
 export const Todo: React.FC<TodoProps> = ({ title, dueDate, isMain }) => {
