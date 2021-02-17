@@ -75,9 +75,12 @@ const getInitStore = async (): Promise<StoreType> => {
     mainDate: new Date(response.data.mainDate),
   }
 
-  return Object.keys(defaultStore).reduce((reducedStore, key) => {
-    return { ...preProccess(key, reducedStore) }
-  }, defaultStore)
+  return (Object.keys(defaultStore) as Array<keyof StoreType>).reduce(
+    (reducedStore, key) => {
+      return { ...preProccess(key, reducedStore) }
+    },
+    defaultStore
+  )
 }
 
 export const Store: React.FC = (props) => {
