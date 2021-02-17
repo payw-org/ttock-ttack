@@ -1,9 +1,9 @@
 export function getDDay(dateTime: Date): number[] {
   const [restDay, hour, minute, second] = [
     Math.floor(dateTime.getTime() / (1000 * 60 * 60 * 24)),
-    dateTime.getUTCHours(),
-    dateTime.getUTCMinutes(),
-    dateTime.getUTCSeconds(),
+    dateTime.getHours(),
+    dateTime.getMinutes(),
+    dateTime.getSeconds(),
   ]
   return [restDay, hour, minute, second]
 }
@@ -13,9 +13,9 @@ export function getFormattedDate(date: Date, format: string): string {
     date.getFullYear(),
     date.getMonth() + 1,
     date.getDate(),
-    date.getUTCHours(),
-    date.getUTCMinutes(),
-    date.getUTCSeconds(),
+    date.getHours(),
+    date.getMinutes(),
+    date.getSeconds(),
   ]
   const DATE_FORMAT = {
     YYYY: year,
