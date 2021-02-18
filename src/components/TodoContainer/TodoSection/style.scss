@@ -1,6 +1,6 @@
 @use '@/style/package' as *;
 
-.todo-section {
+.todo-section[data-component] {
   .head {
     margin-bottom: 1.2rem;
 
@@ -41,8 +41,13 @@
   }
 
   .todo-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.8rem;
+    transition: ease-in-out 0.5s;
+    overflow-y: hidden;
+
+    > div {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+    }
   }
 }
