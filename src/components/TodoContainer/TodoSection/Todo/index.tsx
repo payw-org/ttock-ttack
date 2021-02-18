@@ -13,13 +13,22 @@ export interface TodoProps {
   isNew?: boolean
 }
 
-export const Todo: React.FC<TodoProps> = ({ id, title, dueDate, isMain }) => {
+export const Todo: React.FC<TodoProps> = ({
+  id,
+  title,
+  dueDate,
+  isMain,
+  isEdit,
+}) => {
   const {
     store: { todoList },
     dispatchStore,
   } = useStore()
-  const thisTodo = todoList.find((todo) => todo.id === id)
+  const thisTodo = useMemo(() => todoList.find((todo) => todo.id === id), [
+    isEdit,
+  ])
 
+  const menu = useRef<HTMLDivElement>(null)
   const [isShowMenu, setIsShowMenu] = useState(false)
   useEffect(() => {
     return () => setIsShowMenu(false)
@@ -36,8 +45,13 @@ export const Todo: React.FC<TodoProps> = ({ id, title, dueDate, isMain }) => {
   }
 
   const toggleMenu = (e) => {
+    if (!isShowMenu) {
+      window.addEventListener('click', closeMenu)
+    } else {
+      window.removeEventListener('click', closeMenu)
+    }
+
     setIsShowMenu(!isShowMenu)
-    window.addEventListener('click', closeMenu)
   }
 
   const editTodo = () => {
@@ -63,17 +77,12 @@ export const Todo: React.FC<TodoProps> = ({ id, title, dueDate, isMain }) => {
           <h3 className="title">{title}</h3>
           <div className={'star' + (isMain ? 'main' : '')}></div>
         </div>
-        <div className="menu-wrapper">
-          <i
-            className="f7-icons menu-btn"
-            onClick={(e) => {
-              toggleMenu(e)
-            }}
-          >
+        <div className="menu-section">
+          <i className="f7-icons menu-btn" onClick={toggleMenu}>
             ellipsis_vertical
           </i>
           {isShowMenu ? (
-            <div className="menu-wrapper">
+            <div className="menu-wrapper" ref={menu}>
               <button className="menu">완료</button>
               <button className="menu" onClick={editTodo}>
                 수정
