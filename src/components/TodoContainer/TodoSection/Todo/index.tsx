@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useStore } from '@/store'
 import { getFormattedDate } from '@/utils/time'
 import './style.scss'
@@ -34,7 +34,7 @@ export const Todo: React.FC<TodoProps> = ({
     return () => setIsShowMenu(false)
   }, [])
 
-  const closeMenu = (e) => {
+  const closeMenu = useCallback((e) => {
     const todoComponent = e.target.closest('.todo')
     if (todoComponent && +todoComponent.dataset.component === id) {
       return
@@ -42,7 +42,7 @@ export const Todo: React.FC<TodoProps> = ({
 
     setIsShowMenu(false)
     window.removeEventListener('click', closeMenu)
-  }
+  }, [])
 
   const toggleMenu = (e) => {
     if (!isShowMenu) {
