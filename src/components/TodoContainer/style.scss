@@ -7,7 +7,6 @@
   background-color: rgba($color-black, 0.5);
   padding: 1rem 1.2rem;
   width: 25rem;
-  overflow-y: auto;
   border-radius: 0.8rem;
 
   &.plus {
@@ -57,7 +56,13 @@
   .section-container {
     display: grid;
     grid-template-columns: 1fr;
+    max-height: 45vh;
+    overflow-y: auto;
     margin-top: 1rem;
+
+    &::-webkit-scrollbar {
+      display: none !important;
+    }
 
     .todo-section {
       padding-top: 1.2rem;

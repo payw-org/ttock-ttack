@@ -50,59 +50,79 @@
       "image": "/images/cau-logo.png"
     }
   ],
-  "todoConfig": {
-    "isShow": true,
-    "todoSectionList": [
-      {
-        "id": 1,
-        "isShow": true,
-        "title": "To Do",
-        "todoList": [
-          {
-            "id": 1,
-            "title": "과제 제출하기",
-            "dueDate": "2021-02-11 23:59:59",
-            "isMain": true
-          },
-          {
-            "id": 2,
-            "title": "스테이크 굽기",
-            "dueDate": "2021-02-07 18:30:00",
-            "isMain": true
-          },
-          {
-            "id": 3,
-            "title": "과제 제출하기",
-            "dueDate": "2021-02-11 23:59:59",
-            "isMain": true
-          }
-        ]
-      },
-      {
-        "id": 2,
-        "isShow": false,
-        "title": "Done",
-        "todoList": [
-          {
-            "id": 1,
-            "title": "과제 제출하기",
-            "dueDate": "2021-02-11 23:59:59",
-            "isMain": true
-          },
-          {
-            "id": 2,
-            "title": "스테이크 굽기",
-            "dueDate": "2021-02-07 18:30:00",
-            "isMain": true
-          },
-          {
-            "id": 3,
-            "title": "과제 제출하기",
-            "dueDate": "2021-02-11 23:59:59",
-            "isMain": true
-          }
-        ]
-      }
-    ]
+  "todoSectionList": [
+    {
+      "id": 1,
+      "isShow": true,
+      "isAddable": true,
+      "title": "To Do"
+    },
+    {
+      "id": 2,
+      "isShow": false,
+      "isAddable": false,
+      "title": "Done"
+    }
+  ],
+  "todoList": [
+    {
+      "sectionId": 1,
+      "id": 1,
+      "title": "과제 제출하기",
+      "dueDate": "2021-02-11 23:59:59",
+      "isMain": false
+    },
+    {
+      "sectionId": 1,
+      "id": 2,
+      "title": "스테이크 굽기",
+      "dueDate": "2021-02-07 18:30:00",
+      "isMain": false
+    },
+    {
+      "sectionId": 1,
+      "id": 3,
+      "title": "과제 제출하기",
+      "dueDate": "2021-02-11 23:59:59",
+      "isMain": false
+    },
+    {
+      "sectionId": 1,
+      "id": 4,
+      "title": "과제하기",
+      "dueDate": "2021-02-11 23:59:59",
+      "isMain": false
+    },
+    {
+      "sectionId": 1,
+      "id": 5,
+      "title": "개발",
+      "dueDate": "2021-02-11 23:59:59",
+      "isMain": false
+    },
+    {
+      "sectionId": 2,
+      "id": 6,
+      "title": "과제 제출하기",
+      "dueDate": "2021-02-11 23:59:59",
+      "isMain": false
+    },
+    {
+      "sectionId": 2,
+      "id": 7,
+      "title": "스테이크 굽기",
+      "dueDate": "2021-02-07 18:30:00",
+      "isMain": false
+    },
+    {
+      "sectionId": 2,
+      "id": 8,
+      "title": "과제 제출하기",
+      "dueDate": "2021-02-11 23:59:59",
+      "isMain": false
+    }
+  ],
+  "toggleConfig": {
+    "todo": true
   }
 }

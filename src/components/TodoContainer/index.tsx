@@ -1,36 +1,33 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useStore } from '@/store'
+import { TodoSection } from './TodoSection'
 import './style.scss'
-import { TodoSection, TodoSectionProps } from './TodoSection'
 
-export type TodoContainerProps = {
-  isShow: boolean
-  todoSectionList: TodoSectionProps[]
-}
+export const TodoContainer: React.FC = () => {
+  const {
+    store: { todoSectionList, toggleConfig },
+    dispatchStore,
+  } = useStore()
 
-export const TodoContainer: React.FC<TodoContainerProps> = ({
-  isShow,
-  todoSectionList,
-}) => {
-  const [isShowTodo, setIsShowTodo] = useState(isShow)
   const toggleContainer = () => {
-    setIsShowTodo(!isShowTodo)
+    dispatchStore('toggleConfig', { ...toggleConfig, todo: !toggleConfig.todo })
   }
 
   return (
     <div
-      className={'todo-container ' + (isShowTodo ? 'minus' : 'plus')}
+      className={'todo-container ' + (toggleConfig.todo ? 'minus' : 'plus')}
       data-component=""
     >
       <div className="row between title-wrapper">
         <div className="title">To Do List</div>
-        <i className="f7-icons plus" onClick={toggleContainer}>
-          plus_square
-        </i>
-        <i className="f7-icons minus" onClick={toggleContainer}>
-          minus_square
-        </i>
+        <div className="toggle-btn" onClick={toggleContainer}>
+          <i className="f7-icons plus">plus_square</i>
+          <i className="f7-icons minus">minus_square</i>
+        </div>
       </div>
-      <div className={'section-container ' + (!isShowTodo ? 'dp-none' : '')}>
+      <div
+        className={'section-container ' + (!toggleConfig.todo ? 'dp-none' : '')}
+      >
         {todoSectionList.map((todoSection) => (
           <TodoSection {...todoSection} key={todoSection.id} />
         ))}
