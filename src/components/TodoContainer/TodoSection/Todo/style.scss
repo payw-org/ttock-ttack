@@ -6,6 +6,15 @@
   width: 100%;
   padding: 0.6rem 0.8rem;
 
+  &:last-child {
+    .menu-section {
+      .menu-wrapper {
+        top: initial;
+        bottom: -1.8rem;
+      }
+    }
+  }
+
   .title-wrapper {
     .title {
       display: flex;
@@ -35,7 +44,7 @@
 
     .menu-wrapper {
       position: absolute;
-      top: 0;
+      top: -0.3rem;
       right: 100%;
       width: fit-content;
       padding: 0.8rem 1.2rem;
