@@ -3,6 +3,7 @@
 .display-time {
   display: flex;
   align-items: baseline;
+  text-shadow: 0 2px 4px rgba($color-black, 33%);
   margin-right: 1.6rem;
 
   .value-wrapper {
