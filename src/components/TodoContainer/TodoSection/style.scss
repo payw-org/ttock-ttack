@@ -22,7 +22,7 @@
         border-radius: 0.4rem;
         background-color: $color-gray-100;
         cursor: pointer;
-        user-select: none;
+
       }
     }
 
@@ -31,7 +31,6 @@
         font-size: 1.8rem;
         color: $color-white;
         cursor: pointer;
-        user-select: none;
 
         &.down {
           transform: rotate(180deg);
