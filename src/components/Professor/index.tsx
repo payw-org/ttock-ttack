@@ -1,31 +1,31 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { ProfessorCard } from '@/components/Professor/ProfessorCard'
 import { SearchBar } from '@/components/Professor/ProfessorSearch'
 import { SelectorBar } from '@/components/Professor/ProfessorSelector'
 import { ProfessorCardProps } from '@/components/Professor/ProfessorCard'
 import './style.scss'
 
-export interface ProfessorProps {
+export type ProfessorProps {
   professorsList: ProfessorCardProps[]
 }
 
 export const Professor: React.FC<ProfessorProps> = ({ professorsList }) => {
-  const [professorCard, setProfessorCard] = useState(professorsList);
-  const professorSchool = professorsList.map((professor) => professor.school);
+  const [professorCard, setProfessorCard] = useState(professorsList)
+  const professorSchool = professorsList.map((professor) => professor.school)
   const professorDepartment = professorsList.map(
     (professor) => professor.department
-  );
+  )
   const changeProfessorSchool = (school) => {
     setProfessorCard(
       professorsList.filter((professor) => professor.school === school)
-    );
-  };
+    )
+  }
 
   const changeProfessorDepartment = (department) => {
     setProfessorCard(
       professorsList.filter((professor) => professor.department === department)
-    );
-  };
+    )
+  }
 
   const searchComment = (search) => {
     setProfessorCard(
@@ -33,17 +33,17 @@ export const Professor: React.FC<ProfessorProps> = ({ professorsList }) => {
         (professor) =>
           professor.school.indexOf(search) > -1 ||
           professor.department.indexOf(search) > -1 ||
-          professor.name.indexOf(search) > -1 
+          professor.name.indexOf(search) > -1
       )
-    );
-  };
+    )
+  }
 
   return (
     <div className="search-professor-menu">
-      <div className="searchBar">
+      <div className="search-bar">
         <SearchBar filterSelector={searchComment}></SearchBar>
       </div>
-      <div className="selectBar">
+      <div className="select-bar">
         <SelectorBar
           selector={[...new Set(professorSchool)]}
           filterSelector={changeProfessorSchool}
@@ -55,7 +55,10 @@ export const Professor: React.FC<ProfessorProps> = ({ professorsList }) => {
       </div>
       <div className="profess-info">
         {professorCard.map((professor) => (
-          <ProfessorCard key={professor.id} professor={professor}></ProfessorCard>
+          <ProfessorCard
+            key={professor.id}
+            professor={professor}
+          ></ProfessorCard>
         ))}
       </div>
     </div>
