@@ -5,8 +5,8 @@
   right: 2rem;
   top: 5rem;
   background-color: rgba($color-black, 0.5);
-  padding: 16px;
-  width: 25rem;
+  padding: 1.6rem;
+  width: 60rem;
   height: 30rem;
   border-radius: 0.8rem;
   overflow-y: scroll;
@@ -19,7 +19,5 @@
 .profess-info {
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
-  padding-top: 1.2rem;
-  border-top: 0.1rem solid #ffffff;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
 }

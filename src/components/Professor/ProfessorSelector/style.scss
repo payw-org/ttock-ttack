@@ -1,19 +1,36 @@
 @use '@/style/package' as *;
 
-.selectBar {
+.select-bar {
   margin-bottom: 1.2rem;
   display: flex;
-  place-content: space-between;
+  place-content: flex-end;
 }
 
 .search-icon {
-  width: 10px;
+  width: 1rem;
 }
 
 .custom-select > select {
-  width: 10.5rem;
+  width: 14rem;
   border-color: $color-white;
-  padding: 3px;
-  font-size: 8px;
+  padding: 0.3rem;
+  font-size: 1.3rem;
   border-radius: 0.4rem;
+  position: relative;
+  display: inline-block;
+  &:first-child {
+    margin-right: 1rem;
+  }
+
+  &:ms-expand {
+    display: none;
+  }
+}
+.select-arrow {
+  position: relative;
+  font-size: 1.8rem !important;
+  top: 0.2rem;
+  right: 3rem;
+  width: 0;
+  height: 0;
 }
