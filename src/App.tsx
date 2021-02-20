@@ -9,6 +9,9 @@ import '@/style/global.scss'
 const App: React.FC = () => {
   return (
     <>
+      <div id="bg" style={{ backgroundImage: 'url("images/bg/1.jpg")' }}>
+        <img id="bg-overlay" src="images/bg/overlay.png"></img>
+      </div>
       <Store>
         <MainSection />
         <SideMenuBar />
