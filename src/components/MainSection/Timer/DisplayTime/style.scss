@@ -20,7 +20,7 @@
     .next-value {
       display: flex;
       justify-content: flex-end;
-      font-size: 9rem;
+      font-size: 10rem;
       line-height: 1.2em;
       color: $color-gray-50;
       text-align: center;
@@ -28,7 +28,7 @@
       div {
         span {
           display: inline-block;
-          width: 5.9rem;
+          width: 6.4rem;
         }
       }
     }
@@ -38,5 +38,6 @@
     font-size: 3.2rem;
     font-weight: 500;
     color: $color-gray-50;
+    margin-left: 0.4rem;
   }
 }
