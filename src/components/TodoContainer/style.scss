@@ -1,15 +1,21 @@
 @use '@/style/package' as *;
 
 .todo-container[data-component] {
+  transition: 0.5s;
   position: absolute;
   right: 2rem;
   bottom: 2rem;
-  background-color: rgba($color-black, 0.5);
   padding: 1rem 1.2rem;
-  width: 25rem;
+  width: 30rem;
   border-radius: 0.8rem;
 
   &.plus {
+    background-color: $color-close;
+
+    &:hover {
+      background-color: $color-open;
+    }
+
     i {
       &.plus {
         display: block;
@@ -22,6 +28,8 @@
   }
 
   &.minus {
+    background-color: $color-open;
+
     i {
       &.plus {
         display: none;
@@ -36,8 +44,8 @@
   > .title-wrapper {
     .title {
       font: {
-        size: 2rem;
-        weight: 500;
+        size: 1.8rem;
+        weight: 600;
       }
       letter-spacing: 0.025em;
       color: $color-white;
