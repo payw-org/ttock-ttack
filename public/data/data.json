@@ -1,5 +1,4 @@
 {
-  "mainDate": "2022-02-11 23:59:59",
   "sideBookmarkList": [
     {
       "id": 1,
@@ -69,21 +68,21 @@
       "sectionId": 1,
       "id": 1,
       "title": "과제 제출하기",
-      "dueDate": "2021-02-11 23:59:59",
+      "dueDate": "2021-03-11 23:59:59",
       "isMain": false
     },
     {
       "sectionId": 1,
       "id": 2,
       "title": "스테이크 굽기",
-      "dueDate": "2021-02-07 18:30:00",
+      "dueDate": "2021-03-01 18:30:00",
       "isMain": false
     },
     {
       "sectionId": 1,
       "id": 3,
       "title": "과제 제출하기",
-      "dueDate": "2021-02-11 23:59:59",
+      "dueDate": "2021-04-04 23:59:59",
       "isMain": false
     },
     {
