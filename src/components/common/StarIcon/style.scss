@@ -1,0 +1,15 @@
+@use "@/style/package" as *;
+
+.star-icon[data-component] {
+  transition: 0.2s;
+  font-size: 1.2rem;
+  color: $color-white;
+  background-color: $color-gray-300;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+
+  &.active {
+    background-color: $color-blue-lighten-1;
+  }
+}
