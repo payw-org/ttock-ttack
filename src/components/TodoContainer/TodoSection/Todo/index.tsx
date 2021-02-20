@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useStore } from '@/store'
+import { StarIcon } from '@/components/common/StarIcon'
 import { getFormattedDate } from '@/utils/time'
 import './style.scss'
 
@@ -75,7 +76,7 @@ export const Todo: React.FC<TodoProps> = ({
       <div className="row between">
         <div className="title-wrapper">
           <h3 className="title">{title}</h3>
-          <div className={'star' + (isMain ? 'main' : '')}></div>
+          {isMain ? <StarIcon isActive={true}></StarIcon> : <></>}
         </div>
         <div className="menu-section">
           <i className="f7-icons menu-btn" onClick={toggleMenu}>

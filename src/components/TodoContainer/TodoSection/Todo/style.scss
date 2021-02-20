@@ -6,7 +6,7 @@
   width: 100%;
   padding: 0.6rem 0.8rem;
 
-  &:last-child {
+  &:last-child:not(:first-child) {
     .menu-section {
       .menu-wrapper {
         top: initial;
@@ -16,6 +16,10 @@
   }
 
   .title-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.4rem;
+
     .title {
       display: flex;
       align-items: center;
@@ -24,8 +28,15 @@
         weight: 500;
       }
       letter-spacing: -0.025em;
-      line-height: 1.2;
+      line-height: 1;
       color: $color-gray-900;
+    }
+
+    .star-icon {
+      margin: {
+        left: 0.6rem;
+      }
+      cursor: initial;
     }
   }
 
