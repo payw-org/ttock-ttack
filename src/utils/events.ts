@@ -17,5 +17,5 @@ export const autoScaleInputHandler = ({
 
 export const setElementAtCursor = (element: HTMLElement, e) => {
   element.style.top = `${e.clientY - e.target.getBoundingClientRect().top}px`
-  element.style.left = `${e.screenX - e.target.getBoundingClientRect().left}px`
+  element.style.left = `${e.clientX - e.target.getBoundingClientRect().left}px`
 }
