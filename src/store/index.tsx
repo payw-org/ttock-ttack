@@ -1,8 +1,9 @@
-import axios from 'axios'
 import React, { createContext, useContext, useEffect, useState } from 'react'
+import axios from 'axios'
 import { BookmarkProps } from '@/components/common/Bookmark'
 import { TodoSectionProps } from '@/components/TodoContainer/TodoSection'
 import { TodoProps } from '@/components/TodoContainer/TodoSection/Todo'
+import { getMainTodo, sortTodoList } from './functions'
 
 export type Toggle = {
   todo: boolean
@@ -10,27 +11,31 @@ export type Toggle = {
 
 export type StoreType = {
   sideBookmarkList: BookmarkProps[]
-  mainDate: Date
   todoSectionList: TodoSectionProps[]
   todoList: TodoProps[]
   toggleConfig: Toggle
+  mainTodo: TodoProps
 }
 
-const preProccess = (key: keyof StoreType, store: StoreType): StoreType => {
-  if (key === 'todoList') {
-    store.todoList.sort((a, b) => {
-      return a.dueDate > b.dueDate
-        ? 1
-        : a.dueDate < b.dueDate
-        ? -1
-        : a.title > b.title
-        ? 1
-        : a.id > b.id
-        ? 1
-        : -1
-    })
+type DerivedType = {
+  mainTodo: TodoProps
+}
+
+type WritableType = {
+  [K in Exclude<keyof StoreType, keyof DerivedType>]: StoreType[K]
+}
+
+const preProccess = (key: keyof WritableType, store: StoreType): StoreType => {
+  let newStore = { ...store }
+
+  switch (key) {
+    case 'todoList':
+      newStore.todoList = sortTodoList(newStore.todoList)
+      newStore.mainTodo = getMainTodo(newStore.todoList)
+      break
   }
-  return store
+
+  return newStore
 }
 
 const StoreContext = createContext<StoreType | undefined>(undefined)
@@ -45,41 +50,44 @@ export const useStore = () => {
     throw new Error('Store is not initialized')
   }
 
-  function dispatchStore<K extends keyof StoreType>(
+  function dispatchStore<K extends keyof WritableType>(
     key: K,
     newValue: StoreType[K]
   ) {
     if (store === undefined || setStore === undefined) return
 
     store[key] = newValue
-    const newStore = { ...preProccess(key, store) }
-
-    setStore(newStore)
+    setStore({ ...preProccess(key, store) })
   }
 
-  return {
-    store,
-    dispatchStore,
-  }
+  return { store, dispatchStore }
 }
 
 const getInitStore = async (): Promise<StoreType> => {
-  const response = await axios.get('/data/data.json')
+  const timeDelay = new Promise<{
+    data: WritableType
+  }>((resolve) => {
+    setTimeout(() => {
+      resolve(axios.get('/data/data.json'))
+    }, 300)
+  })
+  const response = await timeDelay // will be deleted code
+  // const response = await axios.get('/data/data.json')
 
-  const defaultStore: StoreType = {
-    ...response.data,
-    todoList: response.data.todoList.map((todo) => ({
-      ...todo,
-      dueDate: new Date(todo.dueDate),
-    })),
-    mainDate: new Date(response.data.mainDate),
+  response.data.todoList = response.data.todoList.map((todo) => ({
+    ...todo,
+    dueDate: new Date(todo.dueDate),
+  }))
+
+  const derivedStore: DerivedType = {
+    mainTodo: getMainTodo(response.data.todoList),
   }
 
-  return (Object.keys(defaultStore) as Array<keyof StoreType>).reduce(
-    (reducedStore, key) => {
+  return (Object.keys(response.data) as Array<keyof WritableType>).reduce(
+    (reducedStore: StoreType, key) => {
       return { ...preProccess(key, reducedStore) }
     },
-    defaultStore
+    { ...response.data, ...derivedStore }
   )
 }
 
