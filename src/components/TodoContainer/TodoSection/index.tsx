@@ -24,11 +24,13 @@ export const TodoSection: React.FC<TodoSectionProps> = (props) => {
     if (!container.current) return
 
     if (isShow) {
+      container.current.style.overflowY = 'initial'
       container.current.style.height = `${getFirstChildHeight(
         container.current
       )}px`
       container.current.style.opacity = '1'
     } else {
+      container.current.style.overflowY = 'hidden'
       container.current.style.height = '0'
       container.current.style.opacity = '0'
     }

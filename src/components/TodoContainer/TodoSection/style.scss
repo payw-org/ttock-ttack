@@ -40,8 +40,7 @@
   }
 
   .todo-container {
-    transition: ease-in-out 0.5s;
-    overflow-y: hidden;
+    transition: height ease-in-out 0.5s, opacity ease-in-out 0.5s;
 
     > div {
       display: grid;
