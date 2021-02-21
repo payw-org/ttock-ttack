@@ -23,11 +23,12 @@ function getDifference(str: string, from: string): string {
 }
 
 const animationConfig = {
+  beforeOpacity: 0,
   beforeScale: 0.7,
   targetY: '0.6em',
-  duration: '0.4s',
-  beforeOpacity: 0,
-  delay: 500,
+  duration: 300,
+  delay: 300,
+  disappearDelay: 100,
 }
 
 const guardConfig = {
