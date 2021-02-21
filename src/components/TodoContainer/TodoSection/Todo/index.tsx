@@ -4,7 +4,7 @@ import { StarIcon } from '@/components/common/StarIcon'
 import { getFormattedDate } from '@/utils/time'
 import './style.scss'
 
-export interface TodoProps {
+export type TodoProps = {
   sectionId: number
   id: number
   title: string
