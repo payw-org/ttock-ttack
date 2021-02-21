@@ -1,0 +1,16 @@
+@use '@/style/package' as *;
+
+.menu-picture {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+  padding-top: 1.2rem;
+  height: 100%;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  img {
+    width: 100%;
+  }
+}
