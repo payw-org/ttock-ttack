@@ -1,14 +1,25 @@
 import React, { useEffect, useState } from 'react'
-import { useStore } from '@/store'
 import { getDDay, getTwoDigit } from '@/utils/time'
 import { DisplayTime } from './DisplayTime'
 import './style.scss'
 
-export const Timer: React.FC = () => {
-  const {
-    store: { mainDate },
-  } = useStore()
+export type TimerProps = {
+  mainDate: Date
+}
 
+const getRestTime = (origin: Date, current: Date, isNext = false): string[] => {
+  const isOutOfDate = origin < current
+  const timeGap: Date = new Date(
+    isOutOfDate
+      ? current.getTime() - origin.getTime() + (isNext ? 1000 : 0)
+      : origin.getTime() - current.getTime() - (isNext ? 1000 : 0)
+  )
+  return getDDay(timeGap).map((v, index) =>
+    index === 0 ? `${v}` : getTwoDigit(v)
+  )
+}
+
+export const Timer: React.FC<TimerProps> = ({ mainDate }) => {
   const [currentDateTime, setCurrentDateTime] = useState(new Date())
   useEffect(() => {
     setTimeout(() => {
@@ -16,20 +27,15 @@ export const Timer: React.FC = () => {
     }, 1000)
   }, [currentDateTime])
 
-  const timeGap: Date = new Date(mainDate.getTime() - currentDateTime.getTime())
-  const [restDay, hour, minute, second] = getDDay(timeGap).map((v) =>
-    getTwoDigit(v)
+  const [restDay, hour, minute, second] = getRestTime(mainDate, currentDateTime)
+  const [nextRestDay, nextHour, nextMinute, nextSecond] = getRestTime(
+    mainDate,
+    currentDateTime,
+    true
   )
-
-  const nextTimeGap: Date = new Date(
-    mainDate.getTime() - currentDateTime.getTime() - 1000
-  )
-  const [nextRestDay, nextHour, nextMinute, nextSecond] = getDDay(
-    nextTimeGap
-  ).map((v) => getTwoDigit(v))
 
   return (
-    <div className="timer">
+    <div className="timer" data-component="">
       <DisplayTime
         currentTime={restDay}
         nextTime={nextRestDay}

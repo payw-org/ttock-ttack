@@ -1,6 +1,6 @@
 @use '@/style/package' as *;
 
-.todo-section {
+.todo-section[data-component] {
   .head {
     margin-bottom: 1.2rem;
 
@@ -16,13 +16,18 @@
       }
 
       .add-btn {
+        transition: 0.2s;
         font-size: 1.2rem;
-        color: $color-gray-800;
+        color: $color-gray-600;
         padding: 0.1rem 0.5rem;
         border-radius: 0.4rem;
-        background-color: $color-gray-100;
+        background-color: $color-gray-50;
         cursor: pointer;
-        user-select: none;
+
+        &:hover {
+          color: $color-gray-800;
+          background-color: $color-gray-200;
+        }
       }
     }
 
@@ -31,7 +36,6 @@
         font-size: 1.8rem;
         color: $color-white;
         cursor: pointer;
-        user-select: none;
 
         &.down {
           transform: rotate(180deg);
@@ -41,8 +45,12 @@
   }
 
   .todo-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.8rem;
+    transition: height ease-in-out 0.5s, opacity ease-in-out 0.5s;
+
+    > div {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+    }
   }
 }

@@ -22,16 +22,6 @@
         color: $color-gray-500;
       }
     }
-
-    i.star {
-      font-size: 1.2rem;
-      color: $color-white;
-      background-color: $color-gray-300;
-      padding: 0.2rem;
-      border-radius: 0.2rem;
-      user-select: none;
-      cursor: pointer;
-    }
   }
 
   .date-row {
@@ -45,7 +35,6 @@
     i.calendar {
       font-size: 1.6rem;
       margin-right: 0.4rem;
-      user-select: none;
       cursor: pointer;
     }
 

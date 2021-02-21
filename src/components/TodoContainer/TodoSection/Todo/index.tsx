@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useStore } from '@/store'
+import { StarIcon } from '@/components/common/StarIcon'
 import { getFormattedDate } from '@/utils/time'
 import './style.scss'
 
-export interface TodoProps {
+export type TodoProps = {
   sectionId: number
   id: number
   title: string
@@ -13,19 +14,28 @@ export interface TodoProps {
   isNew?: boolean
 }
 
-export const Todo: React.FC<TodoProps> = ({ id, title, dueDate, isMain }) => {
+export const Todo: React.FC<TodoProps> = ({
+  id,
+  title,
+  dueDate,
+  isMain,
+  isEdit,
+}) => {
   const {
     store: { todoList },
     dispatchStore,
   } = useStore()
-  const thisTodo = todoList.find((todo) => todo.id === id)
+  const thisTodo = useMemo(() => todoList.find((todo) => todo.id === id), [
+    isEdit,
+  ])
 
+  const menu = useRef<HTMLDivElement>(null)
   const [isShowMenu, setIsShowMenu] = useState(false)
   useEffect(() => {
     return () => setIsShowMenu(false)
   }, [])
 
-  const closeMenu = (e) => {
+  const closeMenu = useCallback((e) => {
     const todoComponent = e.target.closest('.todo')
     if (todoComponent && +todoComponent.dataset.component === id) {
       return
@@ -33,11 +43,16 @@ export const Todo: React.FC<TodoProps> = ({ id, title, dueDate, isMain }) => {
 
     setIsShowMenu(false)
     window.removeEventListener('click', closeMenu)
-  }
+  }, [])
 
   const toggleMenu = (e) => {
+    if (!isShowMenu) {
+      window.addEventListener('click', closeMenu)
+    } else {
+      window.removeEventListener('click', closeMenu)
+    }
+
     setIsShowMenu(!isShowMenu)
-    window.addEventListener('click', closeMenu)
   }
 
   const editTodo = () => {
@@ -61,19 +76,14 @@ export const Todo: React.FC<TodoProps> = ({ id, title, dueDate, isMain }) => {
       <div className="row between">
         <div className="title-wrapper">
           <h3 className="title">{title}</h3>
-          <div className={'star' + (isMain ? 'main' : '')}></div>
+          {isMain ? <StarIcon isActive={true}></StarIcon> : <></>}
         </div>
-        <div className="menu-wrapper">
-          <i
-            className="f7-icons menu-btn"
-            onClick={(e) => {
-              toggleMenu(e)
-            }}
-          >
+        <div className="menu-section">
+          <i className="f7-icons menu-btn" onClick={toggleMenu}>
             ellipsis_vertical
           </i>
           {isShowMenu ? (
-            <div className="menu-wrapper">
+            <div className="menu-wrapper" ref={menu}>
               <button className="menu">완료</button>
               <button className="menu" onClick={editTodo}>
                 수정

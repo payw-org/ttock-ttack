@@ -1,13 +1,27 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useStore } from '@/store'
+import { getFirstChildHeight } from '@/utils/common'
 import { TodoSection } from './TodoSection'
 import './style.scss'
 
 export const TodoContainer: React.FC = () => {
   const {
-    store: { todoSectionList, toggleConfig },
+    store: { todoSectionList, toggleConfig, todoList },
     dispatchStore,
   } = useStore()
+  const sectionContiner = useRef<HTMLDivElement>(null)
+
+  const setSectionContainerHeight = () => {
+    if (!sectionContiner.current) return
+
+    sectionContiner.current.style.height = toggleConfig.todo
+      ? `${getFirstChildHeight(sectionContiner.current)}px`
+      : '0'
+  }
+
+  useEffect(() => {
+    setSectionContainerHeight()
+  }, [toggleConfig.todo, todoList, todoSectionList])
 
   const toggleContainer = () => {
     dispatchStore('toggleConfig', { ...toggleConfig, todo: !toggleConfig.todo })
@@ -25,12 +39,12 @@ export const TodoContainer: React.FC = () => {
           <i className="f7-icons minus">minus_square</i>
         </div>
       </div>
-      <div
-        className={'section-container ' + (!toggleConfig.todo ? 'dp-none' : '')}
-      >
-        {todoSectionList.map((todoSection) => (
-          <TodoSection {...todoSection} key={todoSection.id} />
-        ))}
+      <div className="section-container" ref={sectionContiner}>
+        <div>
+          {todoSectionList.map((todoSection) => (
+            <TodoSection {...todoSection} key={todoSection.id} />
+          ))}
+        </div>
       </div>
     </div>
   )

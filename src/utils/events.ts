@@ -14,3 +14,8 @@ export const autoScaleInputHandler = ({
   span.remove()
   target.style.width = `${width}px`
 }
+
+export const setElementAtCursor = (element: HTMLElement, e) => {
+  element.style.top = `${e.clientY - e.target.getBoundingClientRect().top}px`
+  element.style.left = `${e.clientX - e.target.getBoundingClientRect().left}px`
+}
