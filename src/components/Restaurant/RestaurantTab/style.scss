@@ -1,0 +1,21 @@
+@use '@/style/package' as *;
+
+.restaurant-menu {
+  display: table;
+  width: 100%;
+  margin-top: 1rem;
+
+  .menu-tab {
+    display: table-cell;
+    padding: 0 20px;
+    text-align: center;
+  }
+  .selected {
+    color: $color-white;
+    text-decoration: underline;
+    text-underline-position: under;
+  }
+}
+.contents {
+  height: 12rem;
+}
