@@ -7,3 +7,19 @@
     }
   }
 }
+
+@mixin bg-overlay($size, $color: $color-overlay) {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    height: 120%;
+    width: 120%;
+    background-color: $color;
+    filter: blur($size);
+    z-index: -1;
+  }
+}

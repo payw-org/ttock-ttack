@@ -1,4 +1,7 @@
+@use '@/style/package' as *;
+
 .timer[data-component] {
+  @include bg-overlay(6rem);
   width: max-content;
   display: flex;
 }
