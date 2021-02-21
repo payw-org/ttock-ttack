@@ -107,6 +107,9 @@ export const DisplayTime: React.FC<DisplayTimeProps> = ({
 
     setTimeout(() => {
       setGuardAnimation(getAnimationObj(1))
+      setInAnimation(
+        getAnimationObj(0, `0s ${animationConfig.disappearDelay}ms`)
+      )
     }, guardConfig.appearTime)
   }, [nextTime])
 
