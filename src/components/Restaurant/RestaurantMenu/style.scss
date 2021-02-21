@@ -1,0 +1,28 @@
+@use '@/style/package' as *;
+
+.menus {
+  height: 100%;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .menus-list {
+    margin-top: 1rem;
+    .menu {
+      padding: 1rem;
+      border-bottom: 0.2rem solid $color-gray-300;
+
+      .contents {
+        height: 100px;
+      }
+      &:last-child {
+        padding-bottom: 1rem;
+        border-bottom: none;
+      }
+
+      .name {
+        font-size: 1.7rem;
+      }
+    }
+  }
+}
