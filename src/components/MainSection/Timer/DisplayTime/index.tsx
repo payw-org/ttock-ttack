@@ -30,6 +30,11 @@ const animationConfig = {
   delay: 500,
 }
 
+const guardConfig = {
+  disappearTime: 100,
+  appearTime: 800,
+}
+
 const getAnimationObj = (
   scale: number,
   translateY: string,
@@ -56,6 +61,8 @@ export const DisplayTime: React.FC<DisplayTimeProps> = ({
   ]
   const [inAnimation, setInAnimation] = useState<AnimationType>()
   const [outAnimation, setOutAnimation] = useState<AnimationType>()
+  const [guardAnimation, setGuardAnimation] = useState<AnimationType>()
+  const [guard, setGuard] = useState<string>(nextValue)
 
   useEffect(() => {
     setInAnimation(
@@ -67,6 +74,9 @@ export const DisplayTime: React.FC<DisplayTimeProps> = ({
       )
     )
     setOutAnimation(getAnimationObj(1, '0', 'initial', 1))
+    setTimeout(() => {
+      setGuard(nextValue)
+    }, guardConfig.disappearTime)
 
     setTimeout(() => {
       setInAnimation(
@@ -81,6 +91,10 @@ export const DisplayTime: React.FC<DisplayTimeProps> = ({
         )
       )
     }, animationConfig.delay)
+
+    setTimeout(() => {
+      setGuardAnimation(getAnimationObj(1))
+    }, guardConfig.appearTime)
   }, [nextTime])
 
   const getLetterElements = (
@@ -107,6 +121,9 @@ export const DisplayTime: React.FC<DisplayTimeProps> = ({
         <div className="current-value">
           {getLetterElements(currentImmutable)}
           {getLetterElements(currentMutable, outAnimation)}
+        </div>
+        <div className="next-value guard">
+          {getLetterElements(guard, guardAnimation)}
         </div>
       </div>
       <div className="unit">{unit}</div>
