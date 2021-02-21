@@ -5,7 +5,7 @@ import { SelectorBar } from '@/components/Professor/ProfessorSelector'
 import { ProfessorCardProps } from '@/components/Professor/ProfessorCard'
 import './style.scss'
 
-export type ProfessorProps {
+export type ProfessorProps = {
   professorsList: ProfessorCardProps[]
 }
 

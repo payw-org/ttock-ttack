@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './style.scss'
 
-interface DisplayTimeProps {
+type DisplayTimeProps = {
   currentTime: string
   nextTime: string
   unit: string

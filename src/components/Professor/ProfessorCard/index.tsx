@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.scss'
 
-export interface ProfessorCardProps {
+export type ProfessorCardProps = {
   id: number
   position: string
   school: string

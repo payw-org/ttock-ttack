@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.scss'
 
-export interface SelectorBarProps {
+export type SelectorBarProps = {
   selector: string[]
   filterSelector: (value: string) => void
 }

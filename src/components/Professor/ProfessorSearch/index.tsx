@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './style.scss'
 
-export interface SearchBarProps {
+export type SearchBarProps = {
   filterSelector: (value: string) => void
 }
 
