@@ -1,0 +1,52 @@
+@use '@/style/package' as *;
+
+.professor {
+  display: grid;
+  gap: 1rem 0;
+  background-color: #ffffff;
+  border-radius: 0.4rem;
+  padding: 0.6rem 0.8rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 1.2;
+  color: $color-gray-900;
+
+  .professor-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .site {
+    width: 2.7rem;
+    top: 10rem;
+  }
+
+  div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .professor-name {
+    font-size: 2rem;
+  }
+
+  .professor-position {
+    font-size: 1.2rem;
+    color: $color-gray-600;
+  }
+
+  .professor-school {
+    font-size: 1.3rem;
+  }
+
+  .professor-department {
+    font-size: 1.3rem;
+  }
+
+  .professor-email {
+    font-size: 1.3rem;
+  }
+}

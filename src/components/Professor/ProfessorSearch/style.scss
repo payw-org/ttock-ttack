@@ -1,0 +1,25 @@
+@use '@/style/package' as *;
+
+.search-bar {
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  input {
+    border: none;
+    width: 15rem;
+    font-size: 2.5rem;
+    background: bottom;
+    color: $color-white;
+    text-align: left;
+    &::placeholder {
+      color: $color-white;
+    }
+  }
+
+  .search {
+    width: 2rem;
+    fill: $color-white;
+  }
+}

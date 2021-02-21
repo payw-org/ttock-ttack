@@ -1,0 +1,31 @@
+@use '@/style/package' as *;
+
+.nav-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+}
+
+.nav-bar-left,
+.nav-bar-center,
+.nav-bar-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  div {
+    margin: 1rem;
+  }
+}
+
+.weather {
+  .lowest {
+    color: $color-blue-lighten-0;
+  }
+  .best {
+    color: $color-red-lighten-0;
+  }
+}
