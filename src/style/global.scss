@@ -1,8 +1,26 @@
 @use '@/style/package' as *;
 
 /* Default Settings */
+#app {
+  #bg {
+    width: 100vw;
+    height: 100vh;
+    background: {
+      position: center;
+      size: cover;
+    }
+
+    #bg-overlay {
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+    }
+  }
+}
+
 html {
   font-size: $font-size;
+  user-select: none;
 }
 
 * {

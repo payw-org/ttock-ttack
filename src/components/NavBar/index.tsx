@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Professor } from '@/components/Professor'
-import { Restaurent } from '@/components/Restaurant'
+// import { Restaurent } from '@/components/Restaurant'
 import { ProfessorCardProps } from '@/components/Professor/ProfessorCard'
 import { getCurrentDate } from '@/utils/time'
 import './style.scss'
@@ -42,7 +42,7 @@ export const NavBar: React.FC<ProfessorListProps> = ({ professorsList }) => {
   const renderSwitch = (num) => {
     switch (num) {
       case 1:
-        return <Restaurent />
+        return <></>
       case 2:
         return <Professor professorsList={professorsList} />
       default:

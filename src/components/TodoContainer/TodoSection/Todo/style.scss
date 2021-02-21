@@ -1,12 +1,25 @@
 @use '@/style/package' as *;
 
-.todo {
+.todo[data-component] {
   background-color: $color-white;
   border-radius: 0.4rem;
   width: 100%;
   padding: 0.6rem 0.8rem;
 
+  &:last-child:not(:first-child) {
+    .menu-section {
+      .menu-wrapper {
+        top: initial;
+        bottom: -1.8rem;
+      }
+    }
+  }
+
   .title-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.4rem;
+
     .title {
       display: flex;
       align-items: center;
@@ -14,21 +27,58 @@
         size: 1.5rem;
         weight: 500;
       }
-      letter-spacing: -0.05em;
-      line-height: 1.2;
+      letter-spacing: -0.025em;
+      line-height: 1;
       color: $color-gray-900;
+      user-select: text;
+    }
+
+    .star-icon {
+      margin: {
+        left: 0.6rem;
+      }
+      cursor: initial;
     }
   }
 
-  .menu-wrapper {
+  .menu-section {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    .menu {
+    .menu-btn {
       font-size: 1.8rem;
       margin-right: -0.5rem;
       cursor: pointer;
+    }
+
+    .menu-wrapper {
+      position: absolute;
+      top: -0.3rem;
+      right: 100%;
+      width: fit-content;
+      padding: 0.8rem 1.2rem;
+      border-radius: 0.4rem;
+      background-color: $color-white;
+      box-shadow: 0 0.2rem 0.8rem unquote($color-black + '50');
+      z-index: 10;
+
+      .menu {
+        white-space: pre;
+        transition: 0.2s;
+        font-size: 1.4rem;
+        color: $color-gray-700;
+        margin-bottom: 0.6rem;
+
+        &:hover {
+          color: $color-gray-900;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
     }
   }
 
@@ -37,5 +87,6 @@
       size: 1.3rem;
     }
     color: $color-gray-600;
+    user-select: text;
   }
 }

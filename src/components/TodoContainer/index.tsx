@@ -1,39 +1,50 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef } from 'react'
+import { useStore } from '@/store'
+import { getFirstChildHeight } from '@/utils/common'
+import { TodoSection } from './TodoSection'
 import './style.scss'
-import { TodoSection, TodoSectionProps } from './TodoSection'
 
-export type TodoContainerProps = {
-  isShow: boolean
-  todoSectionList: TodoSectionProps[]
-}
+export const TodoContainer: React.FC = () => {
+  const {
+    store: { todoSectionList, toggleConfig, todoList },
+    dispatchStore,
+  } = useStore()
+  const sectionContiner = useRef<HTMLDivElement>(null)
 
-export const TodoContainer: React.FC<TodoContainerProps> = ({
-  isShow,
-  todoSectionList,
-}) => {
-  const [isShowTodo, setIsShowTodo] = useState(isShow)
+  const setSectionContainerHeight = () => {
+    if (!sectionContiner.current) return
+
+    sectionContiner.current.style.height = toggleConfig.todo
+      ? `${getFirstChildHeight(sectionContiner.current)}px`
+      : '0'
+  }
+
+  useEffect(() => {
+    setSectionContainerHeight()
+  }, [toggleConfig.todo, todoList, todoSectionList])
+
   const toggleContainer = () => {
-    setIsShowTodo(!isShowTodo)
+    dispatchStore('toggleConfig', { ...toggleConfig, todo: !toggleConfig.todo })
   }
 
   return (
     <div
-      className={'todo-container ' + (isShowTodo ? 'minus' : 'plus')}
+      className={'todo-container ' + (toggleConfig.todo ? 'minus' : 'plus')}
       data-component=""
     >
       <div className="row between title-wrapper">
         <div className="title">To Do List</div>
-        <i className="f7-icons plus" onClick={toggleContainer}>
-          plus_square
-        </i>
-        <i className="f7-icons minus" onClick={toggleContainer}>
-          minus_square
-        </i>
+        <div className="toggle-btn" onClick={toggleContainer}>
+          <i className="f7-icons plus">plus_square</i>
+          <i className="f7-icons minus">minus_square</i>
+        </div>
       </div>
-      <div className={'section-container ' + (!isShowTodo ? 'dp-none' : '')}>
-        {todoSectionList.map((todoSection) => (
-          <TodoSection {...todoSection} key={todoSection.id} />
-        ))}
+      <div className="section-container" ref={sectionContiner}>
+        <div>
+          {todoSectionList.map((todoSection) => (
+            <TodoSection {...todoSection} key={todoSection.id} />
+          ))}
+        </div>
       </div>
     </div>
   )

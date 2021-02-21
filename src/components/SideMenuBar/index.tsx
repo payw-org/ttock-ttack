@@ -1,16 +1,17 @@
 import React from 'react'
-import { Bookmark, BookmarkProps } from '@/components/common/Bookmark'
+import { useStore } from '@/store'
+import { Bookmark } from '@/components/common/Bookmark'
 import './style.scss'
 
-export type SideMenuBarProps = {
-  bookmarkList: BookmarkProps[]
-}
+export const SideMenuBar: React.FC = () => {
+  const {
+    store: { sideBookmarkList },
+  } = useStore()
 
-export const SideMenuBar: React.FC<SideMenuBarProps> = ({ bookmarkList }) => {
   return (
     <div className="side-menu-bar">
       <div className="bookmark-container">
-        {bookmarkList.map((bookmark) => (
+        {sideBookmarkList.map((bookmark) => (
           <Bookmark {...bookmark} key={bookmark.id}></Bookmark>
         ))}
       </div>

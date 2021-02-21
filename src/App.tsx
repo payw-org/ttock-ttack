@@ -1,50 +1,42 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import { Timer } from '@/components/Timer'
+import { Store } from '@/store'
+import { MainSection } from '@/components/MainSection'
 import { SideMenuBar } from '@/components/SideMenuBar'
-import { BookmarkProps } from '@/components/common/Bookmark'
-import { TodoContainer, TodoContainerProps } from '@/components/TodoContainer'
+import { TodoContainer } from '@/components/TodoContainer'
 import { ProfessorCardProps } from '@/components/Professor/ProfessorCard'
 import { NavBar } from '@/components/NavBar'
 import '@/style/fonts.scss'
 import '@/style/global.scss'
-
-type Data = {
-  sideBookmarkList: BookmarkProps[]
-  mainDate: Date
-  todoConfig: TodoContainerProps
-  professorsList: ProfessorCardProps[]
-}
+import axios from 'axios'
 
 const getData = async () => {
   const response = await axios.get('/data/data.json')
-  return response.data
+  return response.data.professorsList
 }
 
 const App: React.FC = () => {
-  const [data, setData] = useState<Data>()
+  const [professorsList, setProfessorsList] = useState<ProfessorCardProps[]>()
 
   useEffect(() => {
     const fetchData = async () => {
       const fetchedData = await getData()
-      setData({ ...fetchedData, mainDate: new Date(fetchedData.mainDate) })
+      setProfessorsList(fetchedData)
     }
     fetchData()
   }, [])
 
   return (
-    <div>
-      {data ? (
-        <>
-          <Timer dateTime={data.mainDate} />
-          <SideMenuBar bookmarkList={data.sideBookmarkList} />
-          <TodoContainer {...data.todoConfig} />
-          <NavBar professorsList={...data.professorsList} />
-        </>
-      ) : (
-        <></>
-      )}
-    </div>
+    <>
+      <div id="bg" style={{ backgroundImage: 'url("images/bg/1.jpg")' }}>
+        <img id="bg-overlay" src="images/bg/overlay.png"></img>
+      </div>
+      <Store>
+        {professorsList ? <NavBar professorsList={...professorsList} /> : <></>}
+        <MainSection />
+        <SideMenuBar />
+        <TodoContainer />
+      </Store>
+    </>
   )
 }
 

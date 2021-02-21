@@ -1,9 +1,25 @@
 @use '@/style/variables' as *;
 
 @mixin mobile {
-  @media (max-width: variables.$breakpoint-mobile) {
+  @media (max-width: $breakpoint-mobile) {
     & {
       @content;
     }
+  }
+}
+
+@mixin bg-overlay($size, $color: $color-overlay) {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    height: 120%;
+    width: 120%;
+    background-color: $color;
+    filter: blur($size);
+    z-index: -1;
   }
 }
