@@ -1,25 +1,25 @@
 @use '@/style/package' as *;
 
-.searchBar {
-  margin-bottom: 8px;
+.search-bar {
+  margin-bottom: 0.8rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 
   input {
     border: none;
     width: 15rem;
-    font-size: 16px;
+    font-size: 2.5rem;
     background: bottom;
     color: $color-white;
-    text-align: center;
-  }
-  input::placeholder {
-    color: $color-white;
+    text-align: left;
+    &::placeholder {
+      color: $color-white;
+    }
   }
 
-  img {
-    width: 20px;
+  .search {
+    width: 2rem;
     fill: $color-white;
   }
 }

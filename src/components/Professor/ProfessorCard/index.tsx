@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.scss'
 
-export interface ProfessorCardProps {
+export type ProfessorCardProps = {
   id: number
   position: string
   school: string
@@ -21,7 +21,7 @@ export const ProfessorCard = ({ professor }) => {
             <span className="professor-position">{professor.position}</span>
           </div>
           <a href={professor.url} target="_blank">
-            <img src={"/images/email-plus.svg"} className="search-icon" alt="search"></img>
+            <i className="f7-icons site">arrowtriangle_right_square</i>
           </a>
         </div>
         <div className="professor-school">{professor.school}</div>
@@ -29,6 +29,5 @@ export const ProfessorCard = ({ professor }) => {
         <div className="professor-email">{professor.email}</div>
       </div>
     </div>
-  );
-};
-
+  )
+}

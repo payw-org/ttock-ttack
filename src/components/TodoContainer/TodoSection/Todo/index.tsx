@@ -2,7 +2,7 @@ import React from 'react'
 import { getFormattedDate } from '@/utils/time'
 import './style.scss'
 
-export interface TodoProps {
+export type TodoProps = {
   id: number
   title: string
   dueDate: Date

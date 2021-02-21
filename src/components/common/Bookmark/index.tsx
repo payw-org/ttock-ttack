@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.scss'
 
-export interface BookmarkProps {
+export type BookmarkProps = {
   id: number
   name: string
   url: string

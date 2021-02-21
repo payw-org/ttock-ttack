@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { DisplayTime } from './DisplayTime'
 import './style.scss'
 
-export interface TimerProps {
+export type TimerProps = {
   dateTime: Date
 }
 

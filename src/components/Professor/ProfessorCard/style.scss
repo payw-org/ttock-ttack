@@ -2,7 +2,7 @@
 
 .professor {
   display: grid;
-  grid-row-gap: 10px;
+  gap: 1rem 0;
   background-color: #ffffff;
   border-radius: 0.4rem;
   padding: 0.6rem 0.8rem;
@@ -18,8 +18,8 @@
     justify-content: space-between;
   }
 
-  img {
-    width: 15px;
+  .site {
+    width: 2.7rem;
     top: 10rem;
   }
 
@@ -30,22 +30,23 @@
   }
 
   .professor-name {
-    font-size: 16px;
+    font-size: 2rem;
   }
 
   .professor-position {
-    font-size: 12px;
+    font-size: 1.2rem;
+    color: $color-gray-600;
   }
 
   .professor-school {
-    font-size: 12px;
+    font-size: 1.3rem;
   }
 
   .professor-department {
-    font-size: 5px;
+    font-size: 1.3rem;
   }
 
   .professor-email {
-    font-size: 5px;
+    font-size: 1.3rem;
   }
 }
