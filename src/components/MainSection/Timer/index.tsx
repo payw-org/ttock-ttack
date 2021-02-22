@@ -36,26 +36,42 @@ export const Timer: React.FC<TimerProps> = ({ mainDate }) => {
 
   return (
     <div className="timer" data-component="">
-      <DisplayTime
-        currentTime={restDay}
-        nextTime={nextRestDay}
-        unit="일"
-      ></DisplayTime>
-      <DisplayTime
-        currentTime={hour}
-        nextTime={nextHour}
-        unit="시간"
-      ></DisplayTime>
-      <DisplayTime
-        currentTime={minute}
-        nextTime={nextMinute}
-        unit="분"
-      ></DisplayTime>
-      <DisplayTime
-        currentTime={second}
-        nextTime={nextSecond}
-        unit="초"
-      ></DisplayTime>
+      {+restDay === 0 ? (
+        <></>
+      ) : (
+        <DisplayTime
+          currentTime={restDay}
+          nextTime={nextRestDay}
+          unit="일"
+        ></DisplayTime>
+      )}
+      {+hour === 0 && +restDay === 0 ? (
+        <></>
+      ) : (
+        <DisplayTime
+          currentTime={hour}
+          nextTime={nextHour}
+          unit="시간"
+        ></DisplayTime>
+      )}
+      {+hour === 0 && +restDay === 0 && +minute === 0 ? (
+        <></>
+      ) : (
+        <DisplayTime
+          currentTime={minute}
+          nextTime={nextMinute}
+          unit="분"
+        ></DisplayTime>
+      )}
+      {+hour === 0 && +restDay === 0 && +minute === 0 && +second === 0 ? (
+        <></>
+      ) : (
+        <DisplayTime
+          currentTime={second}
+          nextTime={nextSecond}
+          unit="초"
+        ></DisplayTime>
+      )}
     </div>
   )
 }
