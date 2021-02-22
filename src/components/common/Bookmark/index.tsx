@@ -9,9 +9,20 @@ export type BookmarkProps = {
   image: string
 }
 
-export const Bookmark: React.FC<BookmarkProps> = ({ name, url, image }) => {
+export const Bookmark: React.FC<BookmarkProps> = ({ id, name, url, image }) => {
   const menuContianer = useRef<HTMLDivElement>(null)
   const [isShowMenu, setIsShowMenu] = useState(false)
+
+  const closeMenu = useCallback((e) => {
+    const bookmarkComponent = e.target.closest('.bookmark')
+    if (bookmarkComponent && +bookmarkComponent.dataset.component === id) {
+      return
+    }
+
+    setIsShowMenu(false)
+    window.removeEventListener('click', closeMenu)
+    window.removeEventListener('contextmenu', closeMenu)
+  }, [])
 
   const toggleMenu = (e) => {
     e.preventDefault()
@@ -19,6 +30,8 @@ export const Bookmark: React.FC<BookmarkProps> = ({ name, url, image }) => {
 
     setIsShowMenu(true)
     setElementAtCursor(menuContianer.current, e)
+    window.addEventListener('click', closeMenu)
+    window.addEventListener('contextmenu', closeMenu)
   }
 
   return (
