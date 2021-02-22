@@ -1,6 +1,6 @@
 @use '@/style/package' as *;
 
-.side-menu-bar {
+.side-menu-bar[data-component] {
   position: absolute;
   top: 50%;
   transition: 0.6s;
@@ -9,7 +9,7 @@
   border-radius: 0 0.8rem 0.8rem 0;
   background-color: $color-close;
 
-  &:hover {
+  &.show {
     transform: translateX(0) translateY(-50%);
     background-color: $color-open;
   }
