@@ -35,7 +35,7 @@ export const MainSection: React.FC = () => {
             className={'date ' + (isShowDate ? 'show' : 'hide')}
             ref={dateElement}
           >
-            {getFormattedDate(mainTodo.dueDate, 'YYYY년 M월 D일 hh:mm:ss')}
+            {getFormattedDate(mainTodo.dueDate, 'YYYY년 M월 D일 hh:mm')}
           </div>
         </span>
         <span className="suffix">
