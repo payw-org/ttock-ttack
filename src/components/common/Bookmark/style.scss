@@ -1,6 +1,8 @@
 @use '@/style/package' as *;
 
-.bookmark {
+.bookmark[data-component] {
+  position: relative;
+
   a {
     transition: 0.1s;
 
@@ -29,6 +31,38 @@
       height: $line-height * 2;
       max-height: $line-height * 2;
       overflow-y: hidden;
+    }
+  }
+
+  .menu-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s;
+    width: fit-content;
+    padding: 0.8rem 1.2rem;
+    border-radius: 0.4rem;
+    background-color: $color-white;
+    box-shadow: 0 0.2rem 0.8rem rgba($color-black, 50%);
+    z-index: 10;
+
+    &.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &.show {
+      opacity: 1;
+    }
+    .menu {
+      font-size: 1.5rem;
+      color: $color-gray-600;
+      margin-bottom: 0.6rem;
+      cursor: pointer;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 }
