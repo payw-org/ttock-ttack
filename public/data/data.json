@@ -1,52 +1,60 @@
 {
-  "sideBookmarkList": [
+  "bookmarkList": [
     {
       "id": 1,
       "name": "중앙대학교",
       "url": "https://www.cau.ac.kr/index.do",
-      "image": "/images/cau-logo.png"
+      "image": "/images/cau-logo.png",
+      "category": "side"
     },
     {
       "id": 2,
       "name": "중앙대학교",
       "url": "https://www.cau.ac.kr/index.do",
-      "image": "/images/cau-logo.png"
+      "image": "/images/cau-logo.png",
+      "category": "side"
     },
     {
       "id": 3,
       "name": "중앙대학교",
       "url": "https://www.cau.ac.kr/index.do",
-      "image": "/images/cau-logo.png"
+      "image": "/images/cau-logo.png",
+      "category": "side"
     },
     {
       "id": 4,
       "name": "중앙대학교",
       "url": "https://www.cau.ac.kr/index.do",
-      "image": "/images/cau-logo.png"
+      "image": "/images/cau-logo.png",
+      "category": "side"
     },
     {
       "id": 5,
       "name": "중앙대학교",
       "url": "https://www.cau.ac.kr/index.do",
-      "image": "/images/cau-logo.png"
+      "image": "/images/cau-logo.png",
+      "category": "side"
     },
     {
       "id": 6,
       "name": "중앙대학교",
       "url": "https://www.cau.ac.kr/index.do",
-      "image": "/images/cau-logo.png"
+      "image": "/images/cau-logo.png",
+      "category": "side"
     },
     {
       "id": 7,
       "name": "중앙대학교",
       "url": "https://www.cau.ac.kr/index.do",
-      "image": "/images/cau-logo.png"
+      "image": "/images/cau-logo.png",
+      "category": "side"
     },
     {
       "id": 8,
       "name": "중앙대학교",
       "url": "https://www.cau.ac.kr/index.do",
-      "image": "/images/cau-logo.png"
+      "image": "/images/cau-logo.png",
+      "category": "side"
     }
   ],
   "professorsList": [
