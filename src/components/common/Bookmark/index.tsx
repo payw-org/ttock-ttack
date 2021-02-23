@@ -7,6 +7,7 @@ export type BookmarkProps = {
   name: string
   url: string
   image: string
+  category: string
 }
 
 export const Bookmark: React.FC<BookmarkProps> = ({ id, name, url, image }) => {

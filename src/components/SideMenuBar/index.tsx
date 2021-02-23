@@ -5,7 +5,7 @@ import './style.scss'
 
 export const SideMenuBar: React.FC = () => {
   const {
-    store: { sideBookmarkList },
+    store: { bookmarkList },
   } = useStore()
   const [isShow, setIsShow] = useState(false)
 
@@ -22,7 +22,7 @@ export const SideMenuBar: React.FC = () => {
       }}
     >
       <div className="bookmark-container">
-        {sideBookmarkList.map((bookmark) => (
+        {bookmarkList.map((bookmark) => (
           <Bookmark {...bookmark} key={bookmark.id}></Bookmark>
         ))}
       </div>
