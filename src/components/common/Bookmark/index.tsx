@@ -41,7 +41,7 @@ export const Bookmark: React.FC<BookmarkProps> = (props) => {
   }
 
   const setEditBookmark = () => {
-    dispatchStore('editBookmark', { ...props })
+    dispatchStore('editedBookmark', { ...props })
   }
 
   return (

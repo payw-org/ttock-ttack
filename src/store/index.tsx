@@ -11,7 +11,7 @@ export type Toggle = {
 
 export type StoreType = {
   bookmarkList: BookmarkProps[]
-  editBookmark?: BookmarkProps
+  editedBookmark?: BookmarkProps
   todoSectionList: TodoSectionProps[]
   todoList: TodoProps[]
   toggleConfig: Toggle

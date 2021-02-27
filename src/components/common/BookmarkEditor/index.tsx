@@ -5,12 +5,12 @@ import { useStore } from '@/store'
 
 export const BookmarkEditor: React.FC = () => {
   const {
-    store: { editBookmark },
+    store: { editedBookmark, bookmarkList },
     dispatchStore,
   } = useStore()
 
-  const [name, setName] = useState(editBookmark ? editBookmark.name : '')
-  const [url, setUrl] = useState(editBookmark ? editBookmark.url : '')
+  const [name, setName] = useState(editedBookmark ? editedBookmark.name : '')
+  const [url, setUrl] = useState(editedBookmark ? editedBookmark.url : '')
 
   useEffect(() => {
     if (name || !url) return
@@ -19,11 +19,11 @@ export const BookmarkEditor: React.FC = () => {
   }, [url])
 
   useEffect(() => {
-    if (!editBookmark) return
+    if (!editedBookmark) return
 
-    setName(editBookmark.name)
-    setUrl(editBookmark.url)
-  }, [editBookmark])
+    setName(editedBookmark.name)
+    setUrl(editedBookmark.url)
+  }, [editedBookmark])
 
   const inputHandler = (e, setFunc) => {
     setFunc(e.target.value)
@@ -34,16 +34,19 @@ export const BookmarkEditor: React.FC = () => {
   }
 
   return editBookmark ? (
+  return editedBookmark ? (
     <div className="bookmark-editor" data-component="">
       <div className="main-container">
-        <div className="title">북마크 {editBookmark.id ? '수정' : '추가'}</div>
+        <div className="title">
+          북마크 {editedBookmark.id ? '수정' : '추가'}
+        </div>
         <div className="input-container">
           <div className="input-wrapper">
             <label htmlFor="name">이름</label>
             <input
               id="name"
               type="text"
-              placeholder="중앙대학교 포탈"
+              placeholder="북마크 이름"
               value={name}
               onInput={(e) => {
                 inputHandler(e, setName)
@@ -55,7 +58,7 @@ export const BookmarkEditor: React.FC = () => {
             <input
               id="url"
               type="text"
-              placeholder="https://mportal.cau.ac.kr/main.do"
+              placeholder="https://ttock-ttack.com"
               value={url}
               onInput={(e) => {
                 inputHandler(e, setUrl)
@@ -64,7 +67,7 @@ export const BookmarkEditor: React.FC = () => {
           </div>
         </div>
         <div className="button-row row">
-          <button className="cancel" onClick={cancelEdit}>
+          <button className="cancel" onClick={cancelEdited}>
             취소
           </button>
           <button className={'save ' + (url !== '' ? 'active' : '')}>
