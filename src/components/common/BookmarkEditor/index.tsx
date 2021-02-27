@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './style.scss'
 import { getHostFromUrl } from '@/utils/common'
 import { useStore } from '@/store'
+import { getEditedBookmarkList } from '@/store/functions'
 
 export const BookmarkEditor: React.FC = () => {
   const {
@@ -29,11 +30,19 @@ export const BookmarkEditor: React.FC = () => {
     setFunc(e.target.value)
   }
 
-  const cancelEdit = () => {
-    dispatchStore('editBookmark', undefined)
+  const cancelEdited = () => {
+    dispatchStore('editedBookmark', undefined)
   }
 
-  return editBookmark ? (
+  const saveEdited = () => {
+    if (!editedBookmark) return
+    dispatchStore(
+      'bookmarkList',
+      getEditedBookmarkList(bookmarkList, { ...editedBookmark, name, url })
+    )
+    dispatchStore('editedBookmark', undefined)
+  }
+
   return editedBookmark ? (
     <div className="bookmark-editor" data-component="">
       <div className="main-container">
@@ -70,7 +79,10 @@ export const BookmarkEditor: React.FC = () => {
           <button className="cancel" onClick={cancelEdited}>
             취소
           </button>
-          <button className={'save ' + (url !== '' ? 'active' : '')}>
+          <button
+            className={'save ' + (url !== '' ? 'active' : '')}
+            onClick={saveEdited}
+          >
             저장
           </button>
         </div>
