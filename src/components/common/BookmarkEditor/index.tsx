@@ -36,9 +36,18 @@ export const BookmarkEditor: React.FC = () => {
 
   const saveEdited = () => {
     if (!editedBookmark) return
+
+    if (url !== editedBookmark.url) {
+      editedBookmark.image = ''
+    }
+
     dispatchStore(
       'bookmarkList',
-      getEditedBookmarkList(bookmarkList, { ...editedBookmark, name, url })
+      getEditedBookmarkList(bookmarkList, {
+        ...editedBookmark,
+        name,
+        url,
+      })
     )
     dispatchStore('editedBookmark', undefined)
   }
