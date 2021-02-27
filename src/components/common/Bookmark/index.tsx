@@ -46,13 +46,12 @@ export const Bookmark: React.FC<BookmarkProps> = (props) => {
 
   return (
     <div className="bookmark" data-component={props.id}>
-      <a href={props.url} target="_blank">
-        <img
-          loading="lazy"
-          src={props.image}
-          alt={props.name}
-          onContextMenu={toggleMenu}
-        />
+      <a href={props.url} target="_blank" onContextMenu={toggleMenu}>
+        {props.image ? (
+          <img loading="lazy" src={props.image} alt={props.name} />
+        ) : (
+          <div className="alt-circle">{props.name[0]}</div>
+        )}
         <div className="name">{props.name}</div>
       </a>
       <div
