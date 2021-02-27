@@ -12,13 +12,28 @@
       }
     }
 
-    img {
-      display: block;
+    img,
+    .alt-circle {
       width: 7.5rem;
       height: 7.5rem;
       border-radius: 100%;
-      background-color: $color-white;
-      margin-bottom: 4px;
+      background-color: $color-gray-50;
+      margin-bottom: 0.4rem;
+
+      &img {
+        display: block;
+      }
+
+      &.alt-circle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font: {
+          weight: 500;
+          size: 2.8rem;
+        }
+        color: $color-blue-darken-4;
+      }
     }
 
     .name {
@@ -61,8 +76,9 @@
       opacity: 1;
     }
     .menu {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       color: $color-gray-600;
+      padding: 0.2rem;
       margin-bottom: 0.6rem;
       cursor: pointer;
 
