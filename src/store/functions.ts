@@ -52,9 +52,10 @@ export const getEditedBookmarkList = (
     (bookmark) => bookmark.id === editedBookmark.id
   )
 
-  if (editedIndex) {
+  if (editedIndex !== -1) {
     bookmarkList[editedIndex] = { ...editedBookmark }
     return [...bookmarkList]
   }
-  return [...bookmarkList, editedBookmark]
+
+  return [...bookmarkList, { ...editedBookmark, id: bookmarkList.length + 1 }]
 }
