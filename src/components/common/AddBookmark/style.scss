@@ -1,0 +1,22 @@
+@use '@/style/package' as *;
+
+.add-bookmark[data-component] {
+  i {
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 7.5rem;
+    height: 7.5rem;
+    border-radius: 100%;
+    background-color: rgba($color-gray-50, 0.8);
+    font-size: 3.2rem;
+    color: $color-gray-600;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-gray-100;
+      color: $color-gray-800;
+    }
+  }
+}
