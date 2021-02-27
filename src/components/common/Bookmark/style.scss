@@ -24,13 +24,19 @@
     .name {
       $line-height: 1.8rem;
 
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow-y: hidden;
+      word-break: keep-all;
+      word-wrap: break-word;
+      text-overflow: ellipsis;
       text-align: center;
       color: $color-white;
       font-size: 1.6rem;
       line-height: $line-height;
       height: $line-height * 2;
       max-height: $line-height * 2;
-      overflow-y: hidden;
     }
   }
 
