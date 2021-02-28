@@ -1,0 +1,17 @@
+@use '@/style/package' as *;
+
+.restaurent {
+  position: absolute;
+  right: 2rem;
+  top: 5rem;
+  background-color: rgba($color-black, 0.5);
+  padding: 16px;
+  width: 80rem;
+  height: 30rem;
+  border-radius: 0.8rem;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
