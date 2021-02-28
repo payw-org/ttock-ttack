@@ -1,34 +1,99 @@
 @use '@/style/package' as *;
 
-.bookmark {
+.bookmark[data-component] {
+  position: relative;
+  width: 7.5rem;
+  font-size: 7.5rem;
+
   a {
-    transition: 0.1s;
+    display: flex;
+    flex-direction: column;
 
     &:hover {
       .name {
-        color: $color-gray-100;
+        color: $color-white;
       }
     }
 
-    img {
-      display: block;
-      width: 7.5rem;
-      height: 7.5rem;
+    img,
+    .alt-circle {
+      transition: 0.3s;
+      width: 1em;
+      height: 1em;
       border-radius: 100%;
-      background-color: $color-white;
-      margin-bottom: 4px;
+      background-color: $color-gray-100;
+      margin-bottom: 0.08em;
+
+      &img {
+        display: block;
+      }
+
+      &.alt-circle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        span {
+          font: {
+            weight: 500;
+            size: 0.42em;
+          }
+          color: $color-blue-darken-4;
+        }
+      }
     }
 
     .name {
-      $line-height: 1.8rem;
+      $line-height: 1.15em;
 
+      transition: 0.3s;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow-y: hidden;
+      word-break: keep-all;
+      word-wrap: break-word;
+      text-overflow: ellipsis;
       text-align: center;
-      color: $color-white;
-      font-size: 1.6rem;
+      color: $color-gray-100;
+      font-size: 0.22em;
       line-height: $line-height;
       height: $line-height * 2;
       max-height: $line-height * 2;
-      overflow-y: hidden;
+    }
+  }
+
+  .menu-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s;
+    width: fit-content;
+    padding: 0.09em 0.17em;
+    border-radius: 0.05em;
+    background-color: $color-white;
+    box-shadow: 0 0.025em 0.1em rgba($color-black, 50%);
+    z-index: 10;
+
+    &.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &.show {
+      opacity: 1;
+    }
+
+    .menu {
+      color: $color-gray-600;
+      font-size: 0.2em;
+      padding: 0.2em;
+      margin-bottom: 0.2em;
+      cursor: pointer;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 }

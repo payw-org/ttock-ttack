@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Store } from '@/store'
+import { BookmarkEditor } from '@/components/common/BookmarkEditor'
 import { MainSection } from '@/components/MainSection'
 import { SideMenuBar } from '@/components/SideMenuBar'
 import { TodoContainer } from '@/components/TodoContainer'
@@ -35,6 +36,7 @@ const App: React.FC = () => {
         <MainSection />
         <SideMenuBar />
         <TodoContainer />
+        <BookmarkEditor />
       </Store>
     </>
   )

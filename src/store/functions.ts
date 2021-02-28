@@ -1,3 +1,4 @@
+import { BookmarkProps } from '@/components/common/Bookmark'
 import { TodoProps } from '@/components/TodoContainer/TodoSection/Todo'
 
 export const sortTodoList = (todoList: TodoProps[]): TodoProps[] => {
@@ -41,4 +42,20 @@ export const getMainTodo = (todoList: TodoProps[]): TodoProps => {
   }
 
   return mainTodo || defaultTodo
+}
+
+export const getEditedBookmarkList = (
+  bookmarkList: BookmarkProps[],
+  editedBookmark: BookmarkProps
+): BookmarkProps[] => {
+  const editedIndex = bookmarkList.findIndex(
+    (bookmark) => bookmark.id === editedBookmark.id
+  )
+
+  if (editedIndex !== -1) {
+    bookmarkList[editedIndex] = { ...editedBookmark }
+    return [...bookmarkList]
+  }
+
+  return [...bookmarkList, { ...editedBookmark, id: bookmarkList.length + 1 }]
 }

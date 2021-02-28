@@ -1,0 +1,107 @@
+@use '@/style/package' as *;
+
+.bookmark-editor[data-component] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background-color: $color-close;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .main-container {
+    padding: 2rem 2.4rem;
+    border-radius: 0.8rem;
+    background-color: $color-white;
+    box-shadow: 0 0.2rem 0.4rem $color-overlay;
+
+    > .title {
+      font: {
+        size: 1.8rem;
+        weight: 500;
+      }
+      color: $color-gray-800;
+      margin-bottom: 1.2rem;
+    }
+
+    .input-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 1.6rem;
+
+      .input-wrapper {
+        label {
+          font: {
+            size: 1.4rem;
+            weight: 500;
+          }
+          margin-bottom: 0.4rem;
+        }
+
+        input {
+          width: 40rem;
+          padding: 0.6rem 0.8rem;
+          border: 1px solid $color-gray-300;
+          border-radius: 0.4rem;
+          font-size: 1.5rem;
+          color: $color-gray-800;
+
+          &::placeholder {
+            color: $color-gray-400;
+          }
+        }
+      }
+    }
+
+    .button-row {
+      justify-content: flex-end;
+
+      button {
+        transition: 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 6.8rem;
+        height: 3.2rem;
+        font: {
+          size: 1.4rem;
+          weight: 500;
+        }
+        border-radius: 0.4rem;
+        margin-right: 0.8rem;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        &.cancel {
+          background-color: $color-gray-100;
+          color: $color-gray-800;
+
+          &:hover {
+            background-color: $color-gray-200;
+          }
+        }
+
+        &.save {
+          transition: 0.5s;
+          background-color: $color-gray-400;
+          color: $color-white;
+
+          &.active {
+            transition: 0.2s;
+            background-color: $color-blue-lighten-1;
+
+            &:hover {
+              background-color: $color-blue-lighten-0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

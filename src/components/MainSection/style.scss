@@ -8,6 +8,8 @@
 
   > .title-wrapper {
     @include bg-overlay(7.3rem);
+    display: flex;
+    align-items: baseline;
     width: fit-content;
     margin: 0 auto;
     margin-bottom: 2rem;

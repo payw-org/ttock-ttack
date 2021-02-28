@@ -23,23 +23,39 @@ function getDifference(str: string, from: string): string {
 }
 
 const animationConfig = {
+  beforeOpacity: 0,
   beforeScale: 0.7,
   targetY: '0.6em',
-  duration: '0.4s',
-  beforeOpacity: 0,
-  delay: 500,
+  duration: 300,
+  delay: 300,
+  disappearDelay: 100,
+}
+
+const guardConfig = {
+  disappearTime: 100,
+  appearTime: 800,
 }
 
 const getAnimationObj = (
-  scale: number,
-  translateY: string,
-  transition: string,
-  opacity: number
-): AnimationType => ({
-  transform: `scale(${scale}) translateY(${translateY})`,
-  transition,
-  opacity,
-})
+  opacity: number,
+  transition?: string,
+  scale?: number,
+  translateY?: string
+): AnimationType => {
+  const animation = {
+    transition: transition ? transition : 'initial',
+    opacity,
+    transform: 'initial',
+  }
+  if (scale && translateY) {
+    animation.transform = `scale(${scale}) translateY(${translateY})`
+  } else if (scale) {
+    animation.transform = `scale(${scale})`
+  } else if (translateY) {
+    animation.transform = `translateY(${translateY})`
+  }
+  return animation
+}
 
 export const DisplayTime: React.FC<DisplayTimeProps> = ({
   currentTime,
@@ -56,31 +72,45 @@ export const DisplayTime: React.FC<DisplayTimeProps> = ({
   ]
   const [inAnimation, setInAnimation] = useState<AnimationType>()
   const [outAnimation, setOutAnimation] = useState<AnimationType>()
+  const [guardAnimation, setGuardAnimation] = useState<AnimationType>()
+  const [guard, setGuard] = useState<string>(nextValue)
 
   useEffect(() => {
     setInAnimation(
       getAnimationObj(
+        animationConfig.beforeOpacity,
+        undefined,
         animationConfig.beforeScale,
-        `-${animationConfig.targetY}`,
-        'initial',
-        animationConfig.beforeOpacity
+        `-${animationConfig.targetY}`
       )
     )
-    setOutAnimation(getAnimationObj(1, '0', 'initial', 1))
+    setOutAnimation(getAnimationObj(1))
+    setGuardAnimation(getAnimationObj(0))
+
+    setTimeout(() => {
+      setGuard(nextValue)
+    }, guardConfig.disappearTime)
 
     setTimeout(() => {
       setInAnimation(
-        getAnimationObj(1, '0', `${animationConfig.duration} ease-in`, 1)
+        getAnimationObj(1, `${animationConfig.duration}ms ease-in`)
       )
       setOutAnimation(
         getAnimationObj(
+          animationConfig.beforeOpacity,
+          `${animationConfig.duration}ms ease-out`,
           animationConfig.beforeScale,
-          animationConfig.targetY,
-          `${animationConfig.duration} ease-out`,
-          animationConfig.beforeOpacity
+          animationConfig.targetY
         )
       )
     }, animationConfig.delay)
+
+    setTimeout(() => {
+      setGuardAnimation(getAnimationObj(1))
+      setInAnimation(
+        getAnimationObj(0, `0s ${animationConfig.disappearDelay}ms`)
+      )
+    }, guardConfig.appearTime)
   }, [nextTime])
 
   const getLetterElements = (
@@ -107,6 +137,9 @@ export const DisplayTime: React.FC<DisplayTimeProps> = ({
         <div className="current-value">
           {getLetterElements(currentImmutable)}
           {getLetterElements(currentMutable, outAnimation)}
+        </div>
+        <div className="next-value guard">
+          {getLetterElements(guard, guardAnimation)}
         </div>
       </div>
       <div className="unit">{unit}</div>

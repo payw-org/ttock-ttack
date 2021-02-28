@@ -45,7 +45,7 @@ export const Todo: React.FC<TodoProps> = ({
     window.removeEventListener('click', closeMenu)
   }, [])
 
-  const toggleMenu = (e) => {
+  const toggleMenu = () => {
     if (!isShowMenu) {
       window.addEventListener('click', closeMenu)
     } else {

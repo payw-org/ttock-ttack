@@ -9,3 +9,11 @@ export const getFirstChildHeight = (element: HTMLElement) => {
 
   return height
 }
+
+export const getHostFromUrl = (url: string): string => {
+  return url
+    .replace('https://', '')
+    .replace('http://', '')
+    .replace('www.', '')
+    .split('/')[0]
+}
