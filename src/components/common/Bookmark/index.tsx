@@ -11,7 +11,11 @@ export type BookmarkProps = {
   category: string
 }
 
-export const Bookmark: React.FC<BookmarkProps> = (props) => {
+export const Bookmark: React.FC<
+  BookmarkProps & {
+    size?: number
+  }
+> = (props) => {
   const {
     store: { bookmarkList },
     dispatchStore,
@@ -61,12 +65,25 @@ export const Bookmark: React.FC<BookmarkProps> = (props) => {
   }
 
   return (
-    <div className="bookmark" data-component={props.id}>
+    <div
+      className="bookmark"
+      data-component={props.id}
+      style={
+        props.size
+          ? {
+              width: `${props.size}rem`,
+              fontSize: `${props.size}rem`,
+            }
+          : {}
+      }
+    >
       <a href={props.url} target="_blank" onContextMenu={toggleMenu}>
         {props.image ? (
           <img loading="lazy" src={props.image} alt={props.name} />
         ) : (
-          <div className="alt-circle">{props.name[0]}</div>
+          <div className="alt-circle">
+            <span>{props.name[0]}</span>
+          </div>
         )}
         <div className="name">{props.name}</div>
       </a>
