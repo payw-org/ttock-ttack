@@ -4,57 +4,85 @@
       "id": 1,
       "name": "중앙대학교",
       "url": "https://www.cau.ac.kr/index.do",
-      "image": "/images/cau-logo.png",
+      "image": "/images/bookmark/cau-logo.png",
       "category": "side"
     },
     {
       "id": 2,
-      "name": "중앙대학교",
-      "url": "https://www.cau.ac.kr/index.do",
-      "image": "/images/cau-logo.png",
+      "name": "중앙대학교 포탈",
+      "url": "https://mportal.cau.ac.kr/main.do",
+      "image": "/images/bookmark/cau-logo-white.png",
       "category": "side"
     },
     {
       "id": 3,
-      "name": "중앙대학교",
-      "url": "https://www.cau.ac.kr/index.do",
-      "image": "/images/cau-logo.png",
+      "name": "어디로",
+      "url": "https://eodiro.com/",
+      "image": "/images/bookmark/eodiro.png",
       "category": "side"
     },
     {
       "id": 4,
-      "name": "중앙대학교",
-      "url": "https://www.cau.ac.kr/index.do",
-      "image": "/images/cau-logo.png",
+      "name": "중앙대학교 에브리타임",
+      "url": "https://cau.everytime.kr/",
+      "image": "/images/bookmark/cau-everytime.png",
       "category": "side"
     },
     {
       "id": 5,
-      "name": "중앙대학교",
-      "url": "https://www.cau.ac.kr/index.do",
-      "image": "/images/cau-logo.png",
+      "name": "중앙대학교 학술정보원",
+      "url": "https://library.cau.ac.kr/#/",
+      "image": "/images/bookmark/cau-library.png",
       "category": "side"
     },
     {
       "id": 6,
-      "name": "중앙대학교",
-      "url": "https://www.cau.ac.kr/index.do",
-      "image": "/images/cau-logo.png",
+      "name": "중앙대학교 생활관",
+      "url": "http://dormitory.cau.ac.kr/",
+      "image": "/images/bookmark/cau-dormitory.png",
       "category": "side"
     },
     {
       "id": 7,
-      "name": "중앙대학교",
-      "url": "https://www.cau.ac.kr/index.do",
-      "image": "/images/cau-logo.png",
+      "name": "레인보우 시스템",
+      "url": "https://rainbow.cau.ac.kr/",
+      "image": "/images/bookmark/rainbow-system.png",
       "category": "side"
     },
     {
       "id": 8,
+      "name": "중앙대학교 입학처",
+      "url": "http://admission.cau.ac.kr/main.htm",
+      "image": "/images/bookmark/cau-admission.png",
+      "category": "side"
+    },
+    {
+      "id": 9,
       "name": "중앙대학교",
       "url": "https://www.cau.ac.kr/index.do",
-      "image": "/images/cau-logo.png",
-      "category": "side"
+      "image": "/images/bookmark/cau-logo.png",
+      "category": "main"
+    },
+    {
+      "id": 10,
+      "name": "중앙대학교 포탈",
+      "url": "https://mportal.cau.ac.kr/main.do",
+      "image": "/images/bookmark/cau-logo-white.png",
+      "category": "main"
+    },
+    {
+      "id": 11,
+      "name": "어디로",
+      "url": "https://eodiro.com/",
+      "image": "/images/bookmark/eodiro.png",
+      "category": "main"
+    },
+    {
+      "id": 12,
+      "name": "중앙대학교 에브리타임",
+      "url": "https://cau.everytime.kr/",
+      "image": "/images/bookmark/cau-everytime.png",
+      "category": "main"
     }
   ],
   "professorsList": [
