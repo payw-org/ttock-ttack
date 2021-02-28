@@ -3,6 +3,7 @@ import { useStore } from '@/store'
 import { getFormattedDate } from '@/utils/time'
 import { setElementAtCursor } from '@/utils/events'
 import { Timer } from './Timer'
+import { MainBookmarkList } from './MainBookmarkList'
 import './style.scss'
 
 export const MainSection: React.FC = () => {
@@ -43,6 +44,7 @@ export const MainSection: React.FC = () => {
         </span>
       </div>
       <Timer mainDate={mainTodo.dueDate}></Timer>
+      <MainBookmarkList></MainBookmarkList>
     </div>
   )
 }
