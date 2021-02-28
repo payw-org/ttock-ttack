@@ -1,0 +1,29 @@
+@use '@/style/package' as *;
+
+$bookmark-size: 6.3rem;
+
+.main-bookmark-list[data-component] {
+  $gap-horizon: 4rem;
+
+  @include bg-overlay(6.3rem);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: $bookmark-size * 4 + $gap-horizon * 3;
+  gap: 2rem $gap-horizon;
+  margin: 0 auto;
+
+  .bookmark[data-component] {
+    &:hover {
+      img,
+      .alt-circle {
+        filter: brightness(1.05);
+      }
+    }
+
+    img,
+    .alt-circle {
+      filter: brightness(0.9);
+    }
+  }
+}

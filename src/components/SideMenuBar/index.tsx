@@ -25,10 +25,13 @@ export const SideMenuBar: React.FC = () => {
       }}
     >
       <div className="bookmark-container">
-        {bookmarkList.map((bookmark) => (
-          <Bookmark {...bookmark} key={bookmark.id}></Bookmark>
-        ))}
-        {bookmarkList.length < MAX_BOOKMARK ? (
+        {bookmarkList
+          .filter((bookmark) => bookmark.category === 'side')
+          .map((bookmark) => (
+            <Bookmark {...bookmark} key={bookmark.id}></Bookmark>
+          ))}
+        {bookmarkList.filter((bookmark) => bookmark.category === 'side')
+          .length < MAX_BOOKMARK ? (
           <AddBookmark category="side" />
         ) : (
           <></>
