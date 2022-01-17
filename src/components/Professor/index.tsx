@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { useStore } from '@/store'
+
 import { ProfessorCard } from '@/components/Professor/ProfessorCard'
 import { SearchBar } from '@/components/Professor/ProfessorSearch'
 import { SelectorBar } from '@/components/Professor/ProfessorSelector'
@@ -9,7 +11,11 @@ export type ProfessorProps = {
   professorsList: ProfessorCardProps[]
 }
 
-export const Professor: React.FC<ProfessorProps> = ({ professorsList }) => {
+export const Professor: React.FC<ProfessorProps> = ({}) => {
+  const {
+    store: { professorsList },
+  } = useStore()
+
   const [professorCard, setProfessorCard] = useState(professorsList)
   const professorSchool = professorsList.map((professor) => professor.school)
   const professorDepartment = professorsList.map(

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Professor } from '@/components/Professor'
+import { getPosition } from '@/utils/position'
 // import { Restaurent } from '@/components/Restaurant'
 import { ProfessorCardProps } from '@/components/Professor/ProfessorCard'
 import { getCurrentDate } from '@/utils/time'
@@ -17,6 +18,7 @@ export const NavBar: React.FC<ProfessorListProps> = ({ professorsList }) => {
   const [minute, setMinute] = useState(0)
   const [second, setSecond] = useState(0)
 
+  getPosition()
   useEffect(() => {
     setTimeout(() => {
       const [state, hour, minute, second] = getCurrentDate()

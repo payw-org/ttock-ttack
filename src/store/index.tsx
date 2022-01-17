@@ -3,6 +3,7 @@ import axios from 'axios'
 import { BookmarkProps } from '@/components/common/Bookmark'
 import { TodoSectionProps } from '@/components/TodoContainer/TodoSection'
 import { TodoProps } from '@/components/TodoContainer/TodoSection/Todo'
+import { ProfessorCardProps } from '@/components/Professor/ProfessorCard/index'
 import { getMainTodo, sortTodoList } from './functions'
 
 export type Toggle = {
@@ -15,6 +16,7 @@ export type StoreType = {
   todoList: TodoProps[]
   toggleConfig: Toggle
   mainTodo: TodoProps
+  professorsList: ProfessorCardProps[]
 }
 
 type DerivedType = {
@@ -102,6 +104,7 @@ export const Store: React.FC = (props) => {
     fetchInitStore()
   }, [])
 
+  console.log(store)
   return (
     <StoreContext.Provider value={store}>
       <SetStoreContext.Provider value={setStore}>
